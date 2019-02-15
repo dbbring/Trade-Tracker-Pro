@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+        <TableRow android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Activity Trade Entry Label -->
+            <TextView
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp"
+                android:textSize="25dp"
+                android:text="@string/entryLbl" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Enter Ticker -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/entryTickerLbl"
+                android:layout_gravity="left"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:paddingLeft="20dp"
+                android:layout_column="1"  />
+            <!-- Enter Date -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/entryDateLbl"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Enter Entry Price -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/entryEntryPriceLbl"
+                android:layout_gravity="left"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:paddingLeft="20dp"
+                android:layout_column="1"  />
+            <!-- Enter Exit Price -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/entryExitPriceLbl"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Enter Position Size -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/entrySizeLbl"
+                android:layout_gravity="left"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:paddingLeft="20dp"
+                android:layout_column="1"  />
+            <!-- Enter Category Selection -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:text="@string/entryOutcomeCatLbl"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <!-- Enter Account Selection -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/entryAcctNumLbl"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:layout_column="1" />
+        </TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <!-- Enter Trade Details -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="textMultiLine"
+                android:minLines="6"
+                android:text="@string/entryDetailsLbl"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:layout_column="1" />
+        </TableRow>
+        <!-- Save Button -->
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="25dp">
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/entrySaveBtn"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:layout_column="1"/>
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:layout_gravity="left"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Performance"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Entry"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:layout_gravity="right"/>
+    </LinearLayout>
+</RelativeLayout>

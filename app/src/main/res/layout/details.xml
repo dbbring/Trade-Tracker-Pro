@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+        <TableRow android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Activty Label Detail View-->
+            <TextView
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="center"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp"
+                android:textSize="25dp"
+                android:text="@string/detailsLbl" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Ticker Area -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detailsTickerLbl"
+                android:layout_gravity="left"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:paddingLeft="20dp"
+                android:layout_column="1"  />
+            <!-- Date Area-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/detailsDateLbl"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Entry Price Area-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detailsEntryPriceLbl"
+                android:layout_gravity="left"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:paddingLeft="20dp"
+                android:layout_column="1"  />
+            <!-- Exit Price Area -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="@string/detailsExitPriceLbl"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Position Size Entry -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detailsSizeLbl"
+                android:layout_gravity="left"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:paddingLeft="20dp"
+                android:layout_column="1"  />
+            <!-- Percentage Change Area-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:text="@string/detailsChangeLbl"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Category Selection -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detailsCatLbl"
+                android:layout_gravity="left"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:paddingLeft="20dp"
+                android:layout_column="1"  />
+            <!-- Account Selection -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:text="@string/detailsAcctLbl"
+                android:layout_column="2" />
+        </TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <!-- Trade Details Entry Area -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="textMultiLine"
+                android:minLines="6"
+                android:text="@string/detailsDescripLbl"
+                android:paddingBottom="6dp"
+                android:paddingTop="50dp"
+                android:layout_column="1" />
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:layout_gravity="left"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Performance"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Entry"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:layout_gravity="right"/>
+    </LinearLayout>
+</RelativeLayout>

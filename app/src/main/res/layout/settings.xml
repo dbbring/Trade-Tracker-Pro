@@ -1,285 +1,322 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".MainActivity">
     <TableLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
-
-        <TableRow android:layout_gravity="center">
+        <TableRow android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="104dp"
                 android:layout_height="wrap_content"
-                android:text="Settings"
+                android:layout_column="1"
                 android:layout_gravity="center"
-                android:paddingBottom="24dp"
                 android:paddingTop="24dp"
-                android:layout_column="1"  />
+                android:paddingBottom="24dp"
+                android:textSize="25dp"
+                android:text="@string/settingsLbl" />
         </TableRow>
         <!-- First Row of Settings -->
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsThemeLbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="Dark"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Second Row of Settings -->
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsExportEmailLbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="johnDoe@john.com"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Third Row of Settings -->
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+        android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsTrend1Lbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
-                android:text="Hello World2!"
+                android:text="Example 1"
                 android:layout_column="2" />
         </TableRow>
         <!-- Fourth Row of Settings -->
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsTrend2Lbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="Example 2"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Fifth Row of Settings -->
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsTrend3Lbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="Example 3"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Six Row of Settings -->
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsTrend4Lbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="Example 4"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Seventh Row of Settings -->
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsTrend5Lbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="Example 5"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Eighth Row of Settings -->
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsAcct1Lbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="Account # 1"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Ninth Row of Settings -->
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsAcct2Lbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="Account # 2"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Tenth Row of Settings -->
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsAcct3Lbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="Account # 3"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Eleventh Row of Settings -->
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsPortAmountLbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="$ 1,000.00"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
         <!-- Twevelth Row of Settings -->
-        <TableRow>
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
+                android:text="@string/settingsTradeCountLbl"
                 android:layout_gravity="left"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
+                android:paddingLeft="20dp"
                 android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="Hello World2!"
+                android:text="Last Week"
                 android:paddingBottom="6dp"
                 android:paddingTop="6dp"
                 android:layout_column="2" />
         </TableRow>
-        <!-- Bottom Button -->
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
+        <!-- Export Button -->
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="50dp">
+            <Button
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hello World!"
-                android:layout_gravity="left"
+                android:text="@string/settingsExportBtn"
+                android:layout_gravity="center_horizontal"
                 android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_column="1"  />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="Hello World2!"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_column="2" />
+                android:paddingTop="5dp"
+                android:layout_column="1"/>
         </TableRow>
     </TableLayout>
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:layout_gravity="left"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Performance"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Entry"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:layout_gravity="right"/>
+    </LinearLayout>
+</RelativeLayout>
