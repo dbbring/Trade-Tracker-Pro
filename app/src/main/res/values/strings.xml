@@ -42,8 +42,8 @@
     <string name="detailsAcctLbl">Account: Acct 1</string>
     <string name="detailsDescripLbl">Summary of trade details goes here...</string>
     <string name="homeWinningTrendLbl">Winning Trend</string>
-    <string name="homePortChgPercentLbl">Portfolio Change %</string>
-    <string name="homePortChgMoneyLbl">Portfolio Change $</string>
+    <string name="homePortChgPercentLbl">% Change</string>
+    <string name="homePortChgMoneyLbl">$ Change</string>
     <string name="homeLosingTrendLbl">Losing Trend</string>
     <string name="homeTotalTradesLbl">Total Trades</string>
 </resources>
