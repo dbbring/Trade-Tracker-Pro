@@ -7,13 +7,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import java.util.List;
 
 public class TradeDetailFragment extends Fragment {
@@ -29,7 +27,9 @@ public class TradeDetailFragment extends Fragment {
         updateUI();
         return view;
     }
-
+    /*
+    @descrip - Takes the singleton class and sets the adapter on the recycler view.
+     */
     private void updateUI(){
         _fakeTradeEntries pseudoEntries = _fakeTradeEntries.get(getActivity());
         List<Trade> trades = pseudoEntries.getTrades();
@@ -37,7 +37,11 @@ public class TradeDetailFragment extends Fragment {
         mTradeAdapter = new TradeAdapter(trades);
         mRecyclerView.setAdapter(mTradeAdapter);
     }
-
+    /*
+    @descrip - Holder class for recycler view. Inflates each list item. Sets on click listener
+    for each line item in the recycler view. On each line item click new fragment is displayed and this
+    fragment is sent to the back stack.
+     */
     private class TradeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTickerTextView;
         private TextView mDateTextView;
@@ -67,7 +71,10 @@ public class TradeDetailFragment extends Fragment {
             transact.commit();
         }
     }
-
+    /*
+    @descrip - Adapter class for recycler view. Binds the holder to each trade item in the singleton
+     class. Returns size of the array from the singleton class as well.
+     */
     private class TradeAdapter extends RecyclerView.Adapter<TradeHolder> {
         private List<Trade> mTrades;
 

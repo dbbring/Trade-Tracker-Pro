@@ -30,6 +30,8 @@ public  class TradeTrackerActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         Fragment homeFragment = fm.findFragmentById((R.id.home_layout));
 
+        // ============================= Load home Fragment on start up ===========================
+
         if(homeFragment == null) {
             BaseFragment homeFrag = new BaseFragment();
             homeFrag.setLayout(R.layout.home);
@@ -52,6 +54,10 @@ public  class TradeTrackerActivity extends AppCompatActivity {
         performanceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // ======== Instead of BaseFragment, use TradeDetail Fragment.
+                //========== TradeDetail Frag contains the adapter and holder for the recycler view.
+
                 TradeDetailFragment performanceFrag = new TradeDetailFragment();
                 FragmentTransaction transact = getSupportFragmentManager().beginTransaction();
                 transact.replace(R.id.main_layout, performanceFrag);
