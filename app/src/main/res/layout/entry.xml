@@ -1,142 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/entry_layout"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="75dp">
-    <ScrollView
+    android:layout_marginBottom="60dp" >
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-        <TableRow android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!-- Activity Trade Entry Label -->
-            <TextView
-                android:layout_width="104dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="center"
-                android:paddingTop="24dp"
-                android:paddingBottom="24dp"
-                android:textSize="25dp"
-                android:text="@string/entryLbl" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!-- Enter Ticker -->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/entryTickerLbl"
-                android:layout_gravity="left"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:paddingLeft="20dp"
-                android:layout_column="1"  />
-            <!-- Enter Date -->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="@string/entryDateLbl"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_column="2" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!-- Enter Entry Price -->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/entryEntryPriceLbl"
-                android:layout_gravity="left"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:paddingLeft="20dp"
-                android:layout_column="1"  />
-            <!-- Enter Exit Price -->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="@string/entryExitPriceLbl"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_column="2" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!-- Enter Position Size -->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/entrySizeLbl"
-                android:layout_gravity="left"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:paddingLeft="20dp"
-                android:layout_column="1"  />
-            <!-- Enter Category Selection -->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:text="@string/entryOutcomeCatLbl"
-                android:layout_column="2" />
-        </TableRow>
-        <TableRow android:layout_width="match_parent"
+
+
+        <!-- Activity Trade Entry Label -->
+        <TextView
+            android:id="@+id/entryTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
-            <!-- Enter Account Selection -->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/entryAcctNumLbl"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_column="1" />
-        </TableRow>
-        <TableRow android:layout_width="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:text="@string/entryLbl"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!-- Enter Ticker -->
+        <EditText
+            android:id="@+id/entryTicker"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
-            <!-- Enter Trade Details -->
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:inputType="textMultiLine"
-                android:minLines="6"
-                android:text="@string/entryDetailsLbl"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_column="1" />
-        </TableRow>
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/entryTickerLbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/entryTitle" />
+        <!-- Enter Date -->
+        <Button
+            android:id="@+id/dateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/entryDateLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/entryTitle" />
+
+
+        <!-- Enter Entry Price -->
+        <EditText
+            android:id="@+id/entryEntryPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/entryEntryPriceLbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/entryTicker" />
+        <!-- Enter Exit Price -->
+        <EditText
+            android:id="@+id/entryExitPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/entryExitPriceLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateBtn" />
+
+
+        <!-- Enter Position Size -->
+        <EditText
+            android:id="@+id/entrySize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/entrySizeLbl"
+            app:layout_constraintStart_toStartOf="@+id/entryEntryPrice"
+            app:layout_constraintTop_toBottomOf="@+id/entryEntryPrice" />
+        <!-- Enter Category Selection -->
+        <EditText
+            android:id="@+id/outcomeCat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/entryOutcomeCatLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/entrySize" />
+
+
+        <!-- Enter Account Selection -->
+        <EditText
+            android:id="@+id/acctNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/entryAcctNumLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/outcomeCat" />
+
+
+        <!-- Enter Trade Details -->
+        <EditText
+            android:id="@+id/tradeDescrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:inputType="textMultiLine"
+            android:minLines="6"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/entryDetailsLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/acctNum" />
+
         <!-- Save Button -->
-        <TableRow android:layout_width="match_parent"
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="25dp">
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/entrySaveBtn"
-                android:layout_gravity="center_horizontal"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_column="1"/>
-        </TableRow>
-    </TableLayout>
-    </ScrollView>
-</RelativeLayout>
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/entrySaveBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tradeDescrip" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

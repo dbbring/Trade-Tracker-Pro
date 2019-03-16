@@ -1,136 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/details_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ScrollView
+    android:layout_height="match_parent"
+    android:layout_marginBottom="60dp">
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-        <TableRow android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!-- Activty Label Detail View-->
-            <TextView
-                android:layout_width="104dp"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="center"
-                android:paddingTop="24dp"
-                android:paddingBottom="24dp"
-                android:textSize="25dp"
-                android:text="@string/detailsLbl" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!-- Ticker Area -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/detailsTickerLbl"
-                android:layout_gravity="left"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:paddingLeft="20dp"
-                android:layout_column="1"  />
-            <!-- Date Area-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="@string/detailsDateLbl"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_column="2" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!-- Entry Price Area-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/detailsEntryPriceLbl"
-                android:layout_gravity="left"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:paddingLeft="20dp"
-                android:layout_column="1"  />
-            <!-- Exit Price Area -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="@string/detailsExitPriceLbl"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_column="2" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!-- Position Size Entry -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/detailsSizeLbl"
-                android:layout_gravity="left"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:paddingLeft="20dp"
-                android:layout_column="1"  />
-            <!-- Percentage Change Area-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:text="@string/detailsChangeLbl"
-                android:layout_column="2" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <!-- Category Selection -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/detailsCatLbl"
-                android:layout_gravity="left"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:paddingLeft="20dp"
-                android:layout_column="1"  />
-            <!-- Account Selection -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:text="@string/detailsAcctLbl"
-                android:layout_column="2" />
-        </TableRow>
-        <TableRow android:layout_width="match_parent"
+
+
+        <!-- Activty Label Detail View-->
+        <TextView
+            android:id="@+id/detailViewTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
-            <!-- Trade Details Entry Area -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:inputType="textMultiLine"
-                android:minLines="6"
-                android:text="@string/detailsDescripLbl"
-                android:paddingBottom="6dp"
-                android:paddingTop="50dp"
-                android:layout_column="1" />
-        </TableRow>
-    </TableLayout>
-    </ScrollView>
-</RelativeLayout>
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:text="@string/detailsLbl"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!-- Ticker Area -->
+        <TextView
+            android:id="@+id/detailViewTicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsTickerLbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewTitle" />
+        <!-- Date Area-->
+        <TextView
+            android:id="@+id/detailViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsDateLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewTitle" />
+
+
+        <!-- Entry Price Area-->
+        <TextView
+            android:id="@+id/detailViewEntryPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsEntryPriceLbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewTicker" />
+        <!-- Exit Price Area -->
+        <TextView
+            android:id="@+id/detailViewExitPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsExitPriceLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewDate" />
+
+
+        <!-- Position Size Entry -->
+        <TextView
+            android:id="@+id/detailViewSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsSizeLbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewEntryPrice" />
+        <!-- Percentage Change Area-->
+        <TextView
+            android:id="@+id/detailViewNetChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsChangeLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewExitPrice" />
+
+
+        <!-- Category Selection -->
+        <TextView
+            android:id="@+id/detailViewCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsCatLbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewSize" />
+        <!-- Account Selection -->
+        <TextView
+            android:id="@+id/detailViewAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsAcctLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewNetChange" />
+
+
+        <!-- Trade Details Entry Area -->
+        <TextView
+            android:id="@+id/detailViewTradeDescrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:inputType="textMultiLine"
+            android:minLines="6"
+            android:paddingTop="50dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsDescripLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewCategory" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -31,7 +31,7 @@ public class TradeDetailFragment extends Fragment {
     @descrip - Takes the singleton class and sets the adapter on the recycler view.
      */
     private void updateUI(){
-        _fakeTradeEntries pseudoEntries = _fakeTradeEntries.get(getActivity());
+        TradeEntries pseudoEntries = TradeEntries.get(getActivity());
         List<Trade> trades = pseudoEntries.getTrades();
 
         mTradeAdapter = new TradeAdapter(trades);

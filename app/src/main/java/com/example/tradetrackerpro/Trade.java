@@ -3,29 +3,36 @@ package com.example.tradetrackerpro;
 import java.util.Date;
 
 public class Trade {
-    private int mEntryPrice;
-    private int mExitPrice;
+
+
+    private int mTradeID;
+    private double mEntryPrice;
+    private double mExitPrice;
     private int mPositionSize;
-    private int mAcctNum;
+    private String mAcctNum;
     private String mTicker;
-    private String mTradeDescrip;
+    private String mEntryTradeDescrip;
+    private String mExitTradeDescrip;
     private String mOutcomeCat;
     private Date mDate;
 
+    public Trade(int ID){
+        mTradeID = ID;
+    }
 
-    public int getEntryPrice() {
+    public double getEntryPrice() {
         return mEntryPrice;
     }
 
-    public void setEntryPrice(int entryPrice) {
+    public void setEntryPrice(double entryPrice) {
         mEntryPrice = entryPrice;
     }
 
-    public int getExitPrice() {
+    public double getExitPrice() {
         return mExitPrice;
     }
 
-    public void setExitPrice(int exitPrice) {
+    public void setExitPrice(double exitPrice) {
         mExitPrice = exitPrice;
     }
 
@@ -37,11 +44,11 @@ public class Trade {
         mPositionSize = positionSize;
     }
 
-    public int getAcctNum() {
+    public String getAcctNum() {
         return mAcctNum;
     }
 
-    public void setAcctNum(int acctNum) {
+    public void setAcctNum(String acctNum) {
         mAcctNum = acctNum;
     }
 
@@ -53,12 +60,20 @@ public class Trade {
         mTicker = ticker;
     }
 
-    public String getTradeDescrip() {
-        return mTradeDescrip;
+    public String getEntryTradeDescrip() {
+        return mEntryTradeDescrip;
     }
 
-    public void setTradeDescrip(String tradeDescrip) {
-        mTradeDescrip = tradeDescrip;
+    public void setEntryTradeDescrip(String entryTradeDescrip) {
+        mEntryTradeDescrip = entryTradeDescrip;
+    }
+
+    public String getExitTradeDescrip() {
+        return mExitTradeDescrip;
+    }
+
+    public void setExitTradeDescrip(String exitTradeDescrip) {
+        mExitTradeDescrip = exitTradeDescrip;
     }
 
     public String getOutcomeCat() {
@@ -76,4 +91,6 @@ public class Trade {
     public void setDate(Date date) {
         mDate = date;
     }
+
+
 }

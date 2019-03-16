@@ -1,199 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/performance_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="75dp">
-    <ScrollView
+    android:layout_marginBottom="60dp" >
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="0dp">
-        <TableRow
-            android:layout_width="match_parent"
+
+
+        <!-- Activity Label Summary-->
+        <TextView
+            android:id="@+id/performanceTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
-            <!-- Activity Label Summary-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="center"
-                android:paddingTop="24dp"
-                android:paddingBottom="24dp"
-                android:text="@string/summaryLbl"
-                android:textSize="25dp" />
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.25">
-            <!-- Category 1 Area-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_column="1"
-                    android:layout_gravity="left"
-                    android:layout_weight="0.20"
-                    android:gravity="center"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:text="@string/summaryCat1Lbl" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="left"
-                    android:layout_weight="0.80"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:text="chart goes here" />
-            </LinearLayout>
-            <!-- Category 2 Area-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="2"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="0.20"
-                    android:gravity="center"
-                    android:paddingTop="6dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="6dp"
-                    android:text="@string/summaryCat2Lbl" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="0.80"
-                    android:paddingTop="6dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="6dp"
-                    android:text="chart goes here" />
-            </LinearLayout>
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.25">
-            <!-- Category 3 Area-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_column="1"
-                    android:layout_gravity="left"
-                    android:layout_weight="0.20"
-                    android:gravity="center"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:text="@string/summaryCat3Lbl" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="left"
-                    android:layout_weight="0.80"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:text="chart goes here" />
-            </LinearLayout>
-            <!-- Category 4 Area-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="2"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="0.20"
-                    android:gravity="center"
-                    android:paddingTop="6dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="6dp"
-                    android:text="@string/summaryCat4Lbl" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="right"
-                    android:layout_weight="0.80"
-                    android:paddingTop="6dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="6dp"
-                    android:text="chart goes here" />
-            </LinearLayout>
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.25"
-            android:gravity="center">
-            <!--Category 5 Area-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_column="1"
-                    android:layout_gravity="left"
-                    android:layout_weight="0.20"
-                    android:gravity="center"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:text="@string/summaryCat5Lbl" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_gravity="left"
-                    android:layout_weight="0.80"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="6dp"
-                    android:paddingBottom="6dp"
-                    android:text="chart goes here" />
-            </LinearLayout>
-        </TableRow>
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:text="@string/summaryLbl"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!-- Category 1 Area-->
+
+        <TextView
+            android:id="@+id/performCat1Lbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/summaryCat1Lbl"
+            app:layout_constraintEnd_toEndOf="@+id/performCat1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/performanceTitle" />
+
+        <TextView
+            android:id="@+id/performCat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="chart goes here"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/performCat1Lbl" />
+
+        <!-- Category 2 Area-->
+
+        <TextView
+            android:id="@+id/performCat2Lbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:paddingTop="6dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="6dp"
+            android:text="@string/summaryCat2Lbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/performCat2"
+            app:layout_constraintTop_toBottomOf="@+id/performanceTitle" />
+
+        <TextView
+            android:id="@+id/performCat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingTop="6dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="6dp"
+            android:text="chart goes here"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/performCat2Lbl" />
+
+
+        <!-- Category 3 Area-->
+
+        <TextView
+            android:id="@+id/performCat3Lbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/summaryCat3Lbl"
+            app:layout_constraintEnd_toEndOf="@+id/performCat3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/performCat1" />
+
+        <TextView
+            android:id="@+id/performCat3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="chart goes here"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/performCat3Lbl" />
+
+        <!-- Category 4 Area-->
+
+        <TextView
+            android:id="@+id/performCat4Lbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:paddingTop="6dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="6dp"
+            android:text="@string/summaryCat4Lbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/performCat4"
+            app:layout_constraintTop_toBottomOf="@+id/performCat2" />
+
+        <TextView
+            android:id="@+id/performCat4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:paddingTop="6dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="6dp"
+            android:text="chart goes here"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/performCat4Lbl" />
+
+
+        <!--Category 5 Area-->
+
+        <TextView
+            android:id="@+id/performCat5Lbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/summaryCat5Lbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/performCat4" />
+
+        <TextView
+            android:id="@+id/performCat5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="chart goes here"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/performCat5Lbl" />
+
+
         <!-- Recycler View of Past Trades-->
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.01"
-            android:gravity="center">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/trade_item_recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:layout_gravity="center" />
-        </TableRow>
-    </TableLayout>
-    </ScrollView>
-</RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/trade_item_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/performCat5" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

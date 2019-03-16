@@ -1,168 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="75dp">
-    <ScrollView
+    android:layout_marginBottom="60dp" >
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
-        <TableRow android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.15">
-            <!-- Message Area-->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_gravity="center"
-                android:paddingTop="24dp"
-                android:paddingBottom="24dp"
-                android:textSize="20dp"
-                android:text="Important Message Area" />
-        </TableRow>
-        <TableRow android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.05"
-            android:gravity="center">
-            <!-- Total number of Trades -->
-            <LinearLayout android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.20"
-                    android:text="@string/homeTotalTradesLbl"
-                    android:layout_gravity="left"
-                    android:layout_column="1"  />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:gravity="center_horizontal"
-                    android:textSize="75dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.80"
-                    android:text="5"
-                    android:layout_gravity="left" />
-            </LinearLayout>
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.05">
-            <!-- Portfolio Percentage Change -->
-            <LinearLayout android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.20"
-                    android:text="@string/homePortChgPercentLbl"
-                    android:layout_gravity="left"
-                    android:layout_column="1"  />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:gravity="center_horizontal"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.80"
-                    android:textSize="35dp"
-                    android:text="18%"
-                    android:layout_gravity="center_horizontal" />
-            </LinearLayout>
-            <!-- Portfolio Money Change -->
-            <LinearLayout android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="2"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.20"
-                    android:text="@string/homePortChgMoneyLbl"
-                    android:layout_gravity="right" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:gravity="center_horizontal"
-                    android:textSize="35dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.80"
-                    android:text="$426.25"
-                    android:layout_gravity="right" />
-            </LinearLayout>
-        </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.27">
-            <!-- Losing Trend -->
-            <LinearLayout android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.20"
-                    android:text="@string/homeLosingTrendLbl"
-                    android:layout_gravity="left"
-                    android:paddingBottom="6dp"
-                    android:paddingTop="6dp"
-                    android:paddingLeft="20dp"
-                    android:layout_column="1"  />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.80"
-                    android:text="chart goes here"
-                    android:layout_gravity="left"
-                    android:paddingBottom="6dp"
-                    android:paddingTop="6dp"
-                    android:paddingLeft="20dp" />
-            </LinearLayout>
-            <!-- Winning Trend-->
-            <LinearLayout android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_column="1"
-                android:orientation="vertical">
-                <TextView
-                    style="?android:listSeparatorTextViewStyle"
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.20"
-                    android:text="@string/homeWinningTrendLbl"
-                    android:layout_gravity="left"
-                    android:paddingBottom="6dp"
-                    android:paddingTop="6dp"
-                    android:paddingLeft="20dp"
-                    android:layout_column="1"  />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.80"
-                    android:text="chart goes here"
-                    android:layout_gravity="left"
-                    android:paddingBottom="6dp"
-                    android:paddingTop="6dp"
-                    android:paddingLeft="20dp" />
-            </LinearLayout>
-        </TableRow>
-    </TableLayout>
-    </ScrollView>
-</RelativeLayout>
+
+
+        <!-- Message Area-->
+        <TextView
+            android:id="@+id/homeMessageArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:text="Important Message Area"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!-- Total number of Trades -->
+
+        <TextView
+            android:id="@+id/homeTotalTradesLbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="@string/homeTotalTradesLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMessageArea" />
+
+        <TextView
+            android:id="@+id/homeTotalTrades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_horizontal"
+            android:text="5"
+            android:textSize="75dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTotalTradesLbl" />
+
+
+        <!-- Portfolio Percentage Change -->
+
+        <TextView
+            android:id="@+id/homePercentChangeLbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/homePortChgPercentLbl"
+            app:layout_constraintEnd_toEndOf="@+id/homePercentChange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeTotalTrades" />
+
+        <TextView
+            android:id="@+id/homePercentChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_horizontal"
+            android:text="18%"
+            android:textSize="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homePercentChangeLbl" />
+
+        <!-- Portfolio Money Change -->
+
+        <TextView
+            android:id="@+id/homeMoneyChangeLbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@string/homePortChgMoneyLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/homeMoneyChange"
+            app:layout_constraintTop_toBottomOf="@+id/homeTotalTrades" />
+
+        <TextView
+            android:id="@+id/homeMoneyChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_horizontal"
+            android:text="$426.25"
+            android:textSize="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMoneyChangeLbl" />
+
+
+        <!-- Losing Trend -->
+
+        <TextView
+            android:id="@+id/homeLosingTrendLbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/homeLosingTrendLbl"
+            app:layout_constraintEnd_toEndOf="@+id/homeLosingTrend"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homePercentChange" />
+
+        <TextView
+            android:id="@+id/homeLosingTrend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="chart goes here"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeLosingTrendLbl" />
+
+        <!-- Winning Trend-->
+
+        <TextView
+            android:id="@+id/homeWinningTrendLbl"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/homeWinningTrendLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/homeWinningTrend"
+            app:layout_constraintTop_toBottomOf="@+id/homeMoneyChange" />
+
+        <TextView
+            android:id="@+id/homeWinningTrend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="chart goes here"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeWinningTrendLbl" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

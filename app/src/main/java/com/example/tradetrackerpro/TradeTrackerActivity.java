@@ -6,15 +6,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-/*
-==================== TODO =========================
-On fragment end write changes to singleton class
-on activity end write singleton class to database and text file
 
- */
 public  class TradeTrackerActivity extends AppCompatActivity {
 
     private ImageButton homeBtn;
@@ -69,11 +65,12 @@ public  class TradeTrackerActivity extends AppCompatActivity {
         entryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseFragment entryFrag = new BaseFragment();
+                TradeEntryFragment entryFrag = new TradeEntryFragment();
                 entryFrag.setLayout(R.layout.entry);
                 FragmentTransaction transact = getSupportFragmentManager().beginTransaction();
                 transact.replace(R.id.main_layout, entryFrag);
                 transact.commit();
+
             }
         });
 
