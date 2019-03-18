@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Trade {
 
-
     private int mTradeID;
     private double mEntryPrice;
     private double mExitPrice;
@@ -14,10 +13,15 @@ public class Trade {
     private String mEntryTradeDescrip;
     private String mExitTradeDescrip;
     private String mOutcomeCat;
-    private Date mDate;
+    private String mDate;
 
-    public Trade(int ID){
-        mTradeID = ID;
+
+    public int getTradeID() {
+        return mTradeID;
+    }
+
+    public void setTradeID(int tradeID) {
+        mTradeID = tradeID;
     }
 
     public double getEntryPrice() {
@@ -84,11 +88,11 @@ public class Trade {
         mOutcomeCat = outcomeCat;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return mDate;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         mDate = date;
     }
 

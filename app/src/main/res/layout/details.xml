@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/details_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -138,8 +139,8 @@
 
         <!-- Trade Details Entry Area -->
         <TextView
-            android:id="@+id/detailViewTradeDescrip"
-            android:layout_width="wrap_content"
+            android:id="@+id/detailViewEntryTradeDescrip"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
@@ -152,6 +153,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewCategory" />
+
+        <TextView
+            android:id="@+id/detailViewExitTradeDescrip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:inputType="textMultiLine"
+            android:minLines="6"
+            android:paddingTop="50dp"
+            android:paddingBottom="6dp"
+            android:text="@string/detailsDescripLbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewEntryTradeDescrip" />
 
 
     </android.support.constraint.ConstraintLayout>

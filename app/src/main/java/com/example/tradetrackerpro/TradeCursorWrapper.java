@@ -26,11 +26,12 @@ public class TradeCursorWrapper extends CursorWrapper {
         String outcomeCategory = getString(getColumnIndex(tradesDbSchema.TradesTable.Cols.OUTCOME_CAT));
         int size = getInt(getColumnIndex(tradesDbSchema.TradesTable.Cols.SIZE));
 
-        Trade trade = new Trade(id);
+        Trade trade = new Trade();
+        trade.setTradeID(id);
         trade.setEntryPrice(entryPrice);
         trade.setExitPrice(exitPrice);
         trade.setTicker(ticker);
-        trade.setDate(new Date(date));
+        trade.setDate(new Date(date).toString());
         trade.setAcctNum(acctNum);
         trade.setEntryTradeDescrip(entryTradeDescrip);
         trade.setExitTradeDescrip(exitTradeDescrip);

@@ -10,6 +10,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+/*
+====================== TODO ====================
+Clean up date, reformat for just day.
+Run validation on new entry input.
+Cant enter zero on position size on entry screen?
+Change Colors.
+Figure Net Change for Detailed Entry View.
+
+ */
 
 public  class TradeTrackerActivity extends AppCompatActivity {
 

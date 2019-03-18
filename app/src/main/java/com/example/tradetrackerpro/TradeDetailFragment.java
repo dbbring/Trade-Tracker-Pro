@@ -43,6 +43,7 @@ public class TradeDetailFragment extends Fragment {
     fragment is sent to the back stack.
      */
     private class TradeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        private final String TRADE_ID = "com.example.tradetrackerpro.trade_id";
         private TextView mTickerTextView;
         private TextView mDateTextView;
         private Trade mTrade;
@@ -50,7 +51,7 @@ public class TradeDetailFragment extends Fragment {
         public void bind(Trade trade){
             mTrade = trade;
             mTickerTextView.setText(mTrade.getTicker());
-            mDateTextView.setText(mTrade.getDate().toString());
+            mDateTextView.setText(mTrade.getDate());
         }
 
         public TradeHolder(LayoutInflater inflater, ViewGroup parent){
@@ -63,7 +64,10 @@ public class TradeDetailFragment extends Fragment {
 
         @Override
         public void onClick(View view){
-            BaseFragment detailsFrag = new BaseFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt(TRADE_ID,mTrade.getTradeID());
+            TradeEntryDetailFragment detailsFrag = new TradeEntryDetailFragment();
+            detailsFrag.setArguments(bundle);
             detailsFrag.setLayout(R.layout.details);
             FragmentTransaction transact = getActivity().getSupportFragmentManager().beginTransaction();
             transact.replace(R.id.main_layout, detailsFrag);
