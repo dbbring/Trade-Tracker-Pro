@@ -5,34 +5,22 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 /*
 ====================== TODO ====================
-Clean up date, reformat for just day.
 Run validation on new entry input.
 Cant enter zero on position size on entry screen?
 Change Colors.
 Figure Net Change for Detailed Entry View.
-Settings write to file
 Add 3:05 cst reminder
-change SQL so if no exit trade descrip then you can add one in the view details screen
 export to csv
 use implicent intent to send the csv to w.e. the user wants to share with
 % change and $ change on home screen will represent the trade journal activity over the last week, so all gains minus all losses
+Populate charts with real data
+Update exit descrip from detail view onStop()
  */
 
 public  class TradeTrackerActivity extends AppCompatActivity {
@@ -73,9 +61,6 @@ public  class TradeTrackerActivity extends AppCompatActivity {
         performanceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // ======== Instead of BaseFragment, use TradeDetail Fragment.
-                //========== TradeDetail Frag contains the adapter and holder for the recycler view.
 
                 TradeDetailFragment performanceFrag = new TradeDetailFragment();
                 FragmentTransaction transact = getSupportFragmentManager().beginTransaction();

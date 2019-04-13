@@ -1,27 +1,20 @@
 package com.example.tradetrackerpro;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.Set;
-
 import static android.content.Context.MODE_PRIVATE;
 
 
 public class SettingsFragment extends BaseFragment {
-        private Spinner mTradeCounterSelect;
         private Settings mSettings;
-
         private EditText mEmailField;
         private EditText mCat1Field;
         private EditText mCat2Field;
@@ -31,12 +24,13 @@ public class SettingsFragment extends BaseFragment {
         private EditText mAcct1Field;
         private EditText mAcct2Field;
         private EditText mAcct3Field;
-        private Spinner mTradeCounterSelector;
+        private Spinner mTradeCounterSelect;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             String[] ddl_list;
             int ddl_list_index = 0;
+
             View view = inflater.inflate(R.layout.settings, container, false);
             mSettings = Settings.get(getContext());
 
@@ -71,14 +65,14 @@ public class SettingsFragment extends BaseFragment {
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.tradeCounterSelection,android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             mTradeCounterSelect.setAdapter(adapter);
-            mTradeCounterSelector = (Spinner) view.findViewById(R.id.settingsTradeCounter);
             ddl_list = getResources().getStringArray(R.array.tradeCounterSelection);
+            // Set our Spinner Selection based on what our settings file string is
             for(int x = 0; x < ddl_list.length; x++) {
                 if(ddl_list[x].equals(mSettings.getTradeCounter())){
                     ddl_list_index = x;
                 }
             }
-            mTradeCounterSelector.setSelection(ddl_list_index);
+            mTradeCounterSelect.setSelection(ddl_list_index);
 
             return view;
         }
@@ -96,7 +90,8 @@ public class SettingsFragment extends BaseFragment {
             mSettings.setAcct1(mAcct1Field.getText().toString());
             mSettings.setAcct2(mAcct2Field.getText().toString());
             mSettings.setAcct3(mAcct3Field.getText().toString());
-            mSettings.setTradeCounter(mTradeCounterSelector.getSelectedItem().toString());
+            mSettings.setTradeCounter(mTradeCounterSelect.getSelectedItem().toString());
+            mSettings.setImportantMessage(null);
 
             try {
                 OutputStreamWriter writer = new OutputStreamWriter(getContext().openFileOutput("settings.txt", MODE_PRIVATE));
@@ -111,7 +106,5 @@ public class SettingsFragment extends BaseFragment {
 
             super.onPause();
         }
-
-
     }
 

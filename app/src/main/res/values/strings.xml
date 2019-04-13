@@ -48,6 +48,8 @@
     <string name="homeLosingTrendLbl">Losing Trend</string>
     <string name="homeTotalTradesLbl">Total Trades</string>
     <string name="newEntrySuccessful">New Entry Added Successfully!</string>
+    <string name="detailsDeleteBtn">Delete This Entry</string>
+    <string name="entryDeleted">Trade Has Been Successfully Deleted</string>
     <string-array name="tradeCounterSelection">
         <item>"Daily"</item>
         <item>"Weekly"</item>

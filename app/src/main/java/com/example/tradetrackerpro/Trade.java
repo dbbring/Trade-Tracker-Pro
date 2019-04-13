@@ -1,6 +1,5 @@
 package com.example.tradetrackerpro;
 
-import java.util.Date;
 
 public class Trade {
 

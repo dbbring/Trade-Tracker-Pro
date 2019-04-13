@@ -1,10 +1,14 @@
 package com.example.tradetrackerpro;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class TradeEntryDetailFragment extends BaseFragment {
@@ -16,10 +20,11 @@ public class TradeEntryDetailFragment extends BaseFragment {
     private TextView mExitPrice;
     private TextView mSize;
     private TextView mEntryDescrip;
-    private TextView mExitDescrip;
+    private EditText mExitDescrip;
     private TextView mNetChange;
     private TextView mAccountNum;
     private TextView mOutcomeCat;
+    private Button mDeleteButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,7 +50,11 @@ public class TradeEntryDetailFragment extends BaseFragment {
         mEntryDescrip = (TextView) view.findViewById(R.id.detailViewEntryTradeDescrip);
         mEntryDescrip.setText(mTrade.getEntryTradeDescrip());
 
-        mExitDescrip = (TextView) view.findViewById(R.id.detailViewExitTradeDescrip);
+        // If our exit description is blank, let the user add one
+        mExitDescrip = (EditText) view.findViewById(R.id.detailViewExitTradeDescrip);
+        if (mTrade.getExitTradeDescrip().equals("")) {
+            mExitDescrip.setEnabled(true);
+        }
         mExitDescrip.setText(mTrade.getExitTradeDescrip());
 
         mNetChange = (TextView) view.findViewById(R.id.detailViewNetChange);
@@ -55,6 +64,20 @@ public class TradeEntryDetailFragment extends BaseFragment {
 
         mAccountNum = (TextView) view.findViewById(R.id.detailViewAccount);
         mAccountNum.setText(mTrade.getAcctNum());
+
+        mDeleteButton = (Button) view.findViewById(R.id.detailsDeleteBtn);
+        mDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TradeEntries.get(getContext()).deleteTrade(mTrade);
+                Toast.makeText(getContext(),R.string.entryDeleted,Toast.LENGTH_SHORT).show();
+
+                TradeDetailFragment performanceFrag = new TradeDetailFragment();
+                FragmentTransaction transact = getActivity().getSupportFragmentManager().beginTransaction();
+                transact.replace(R.id.main_layout, performanceFrag);
+                transact.commit();
+            }
+        });
 
         return view;
     }

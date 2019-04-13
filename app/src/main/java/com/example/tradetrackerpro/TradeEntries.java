@@ -22,6 +22,10 @@ public class TradeEntries {
         mDatabase.insert(TradesTable.NAME, null, values);
     }
 
+    public void deleteTrade(Trade trade) {
+        mDatabase.delete(TradesTable.NAME,TradesTable.Cols.ID + " = ? ",new String[] {Integer.toString(trade.getTradeID())});
+    }
+
     public static TradeEntries get(Context context){
         if(sTradeEntries == null) {
             sTradeEntries = new TradeEntries(context);

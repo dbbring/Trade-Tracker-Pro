@@ -1,40 +1,20 @@
 package com.example.tradetrackerpro;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.androidplot.pie.PieChart;
-import com.androidplot.pie.Segment;
-import com.androidplot.pie.SegmentFormatter;
-import com.androidplot.ui.Anchor;
-import com.androidplot.ui.FixedTableModel;
-import com.androidplot.ui.HorizontalPositioning;
-import com.androidplot.ui.TableOrder;
-import com.androidplot.ui.VerticalPositioning;
-import com.androidplot.util.PixelUtils;
-import com.androidplot.xy.BarFormatter;
-import com.androidplot.xy.BarRenderer;
 import com.androidplot.xy.CatmullRomInterpolator;
 import com.androidplot.xy.LineAndPointFormatter;
 import com.androidplot.xy.SimpleXYSeries;
-import com.androidplot.xy.XYGraphWidget;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYSeries;
-
-import java.text.FieldPosition;
-import java.text.Format;
-import java.text.ParsePosition;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,21 +29,23 @@ public class TradeDetailFragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.trade_item_recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mCat1Chart = (XYPlot) view.findViewById(R.id.performCat1);
+
         Number[] cat1Vals = {5,4,6,7};
         Number[] cat2Vals = {2,4,1,5};
         Number[] cat3Vals = {1,3,6,8};
         Number[] cat4Vals = {9,4,1,6};
         Number[] cat5Vals = {3,2,0,5};
-        CreateBarChart(mCat1Chart, "Cat 1", cat1Vals, "Cat 2", cat2Vals, "Cat 3", cat3Vals, "Cat 4", cat4Vals, "Cat 5", cat5Vals);
 
+        CreateBarChart(mCat1Chart, "Cat 1", cat1Vals, "Cat 2", cat2Vals, "Cat 3", cat3Vals, "Cat 4", cat4Vals, "Cat 5", cat5Vals);
         updateUI();
+
         return view;
     }
 
     public void CreateBarChart(XYPlot plot, String array1Title, Number[] segment1Val, String array2Title, Number[] segment2Val, String array3Title, Number[] segment3Val,
                                String array4Title, Number[] segment4Val, String array5Title, Number[] segment5Val) {
         plot.getBackgroundPaint().setColor(Color.argb(0,255,255,255));
-
+        // Set up some new series for our graph data
         XYSeries series1 = new SimpleXYSeries(
                 Arrays.asList(segment1Val), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, array1Title);
         XYSeries series2 = new SimpleXYSeries(
@@ -74,7 +56,8 @@ public class TradeDetailFragment extends Fragment {
                 Arrays.asList(segment4Val), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, array4Title);
         XYSeries series5 = new SimpleXYSeries(
                 Arrays.asList(segment5Val), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, array5Title);
-
+        // Format our new series with color, but make the shadow transparent since we overlaying
+        // on a single chart
         LineAndPointFormatter series1Format =
                 new LineAndPointFormatter(Color.RED, Color.GREEN, Color.TRANSPARENT, null);
         LineAndPointFormatter series2Format =
@@ -85,7 +68,7 @@ public class TradeDetailFragment extends Fragment {
                 new LineAndPointFormatter(Color.YELLOW, Color.BLACK, Color.TRANSPARENT, null);
         LineAndPointFormatter series5Format =
                 new LineAndPointFormatter(Color.WHITE, Color.MAGENTA, Color.TRANSPARENT, null);
-
+        // Add some smoothing to the lines
         series1Format.setInterpolationParams(
                 new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
         series2Format.setInterpolationParams(
@@ -96,17 +79,12 @@ public class TradeDetailFragment extends Fragment {
                 new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
         series5Format.setInterpolationParams(
                 new CatmullRomInterpolator.Params(10, CatmullRomInterpolator.Type.Centripetal));
-
-        // add a new series' to the xyplot:
+        // Finally add the series
         plot.addSeries(series1, series1Format);
         plot.addSeries(series2, series2Format);
         plot.addSeries(series3, series3Format);
         plot.addSeries(series4, series4Format);
         plot.addSeries(series5, series5Format);
-
-
-
-
     }
     /*
     @descrip - Takes the singleton class and sets the adapter on the recycler view.

@@ -1,16 +1,12 @@
 package com.example.tradetrackerpro;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Settings {
     private static Settings sSettings;
@@ -26,8 +22,12 @@ public class Settings {
     private String mTradeCounter;
     private String mImportantMessage;
 
-
     private Settings(Context context) {
+        /*
+        Since we are singleton class, on initialization we are checking for a settings file,
+        if no file is not found we are making our settings a from a default state again.
+        then on exit we will save the new settings.
+         */
         try {
             InputStream inputStream = context.openFileInput("settings.txt");
 
@@ -45,7 +45,8 @@ public class Settings {
                 inputStream.close();
                 String tempStr = sb.toString();
                 InputSettingString = tempStr.split(",");
-                // I dont like this, Too closes coupled with the class. If you add a member to this
+
+                // I dont like this, Too closely coupled with the class. If you add a member to this
                 // class be sure to write to the settings file in SettingsFragment.java so it will
                 // be picked up here
                 mEmail = InputSettingString[0];
@@ -68,10 +69,9 @@ public class Settings {
             Toast.makeText(context, "Settings File Not Found!", Toast.LENGTH_LONG).show();
             defaultSettings();
         } catch (IOException e) {
-            Toast.makeText(context, "Cannot read file!", Toast.LENGTH_LONG);
+            Toast.makeText(context, "Cannot read Settings file!", Toast.LENGTH_LONG);
             defaultSettings();
         }
-
     }
 
     private void defaultSettings() {
@@ -85,9 +85,8 @@ public class Settings {
         mAcct2 = "";
         mAcct3 = "";
         mTradeCounter = "";
-        mImportantMessage = "Welcome to Trade Tracker Pro!";
+        mImportantMessage = "Welcome to Trade Tracker Pro! Here you will find important messages in the future...";
     }
-
 
     public static Settings get(Context context) {
         if (sSettings == null) {
