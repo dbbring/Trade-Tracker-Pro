@@ -1,343 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="60dp" >
 
     <android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/settingsTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
-        android:text="@string/settingsLbl"
-        android:textSize="25dp"
-        app:layout_constraintStart_toEndOf="@+id/settingsExportEmailAddressLbl"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/settingsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:text="@string/settingsLbl"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- First Row of Settings -->
+        <!-- Second Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsThemeLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="82dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsThemeLbl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/settingsExportEmailAddressLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsExportEmailLbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
 
-    <EditText
-        android:id="@+id/settingsTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="53dp"
-        android:layout_marginRight="53dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Dark"
-        app:layout_constraintBottom_toTopOf="@+id/settingsExportEmailAddressLbl"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
+        <EditText
+            android:id="@+id/settingsExportEmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:hint="johnDoe@john.com"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
 
-    <!-- Second Row of Settings -->
+        <!-- Third Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsExportEmailAddressLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsExportEmailLbl"
-        app:layout_constraintStart_toStartOf="@+id/settingsThemeLbl"
-        app:layout_constraintTop_toBottomOf="@+id/settingsThemeLbl" />
+        <TextView
+            android:id="@+id/settingsTrendCat1Lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsTrend1Lbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsExportEmailAddressLbl" />
 
-    <EditText
-        android:id="@+id/settingsExportEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="johnDoe@john.com"
-        app:layout_constraintEnd_toEndOf="@+id/settingsTheme"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTheme" />
+        <EditText
+            android:id="@+id/settingsTrendCat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:hint="Hesitation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsExportEmailAddress" />
 
-    <!-- Third Row of Settings -->
+        <!-- Fourth Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsTrendCat1Lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsTrend1Lbl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsExportEmailAddressLbl" />
+        <TextView
+            android:id="@+id/settingsTrendCat2Lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsTrend2Lbl"
+            app:layout_constraintStart_toStartOf="@+id/settingsTrendCat1Lbl"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat1Lbl" />
 
-    <EditText
-        android:id="@+id/settingsTrendCat1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Example 1"
-        app:layout_constraintEnd_toStartOf="@+id/settingsTheme"
-        app:layout_constraintStart_toStartOf="@+id/settingsTheme"
-        app:layout_constraintTop_toBottomOf="@+id/settingsExportEmailAddress" />
+        <EditText
+            android:id="@+id/settingsTrendCat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:hint="Fear"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat1" />
 
-    <!-- Fourth Row of Settings -->
+        <!-- Fifth Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsTrendCat2Lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsTrend2Lbl"
-        app:layout_constraintStart_toStartOf="@+id/settingsTrendCat1Lbl"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat1Lbl" />
+        <TextView
+            android:id="@+id/settingsTrendCat3Lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsTrend3Lbl"
+            app:layout_constraintStart_toStartOf="@+id/settingsTrendCat2Lbl"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat2Lbl" />
 
-    <EditText
-        android:id="@+id/settingsTrendCat2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Example 2"
-        app:layout_constraintStart_toStartOf="@+id/settingsTrendCat1"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat1" />
+        <EditText
+            android:id="@+id/settingsTrendCat3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:hint="Not Cutting Losses"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat2" />
 
-    <!-- Fifth Row of Settings -->
+        <!-- Six Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsTrendCat3Lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsTrend3Lbl"
-        app:layout_constraintStart_toStartOf="@+id/settingsTrendCat2Lbl"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat2Lbl" />
+        <TextView
+            android:id="@+id/settingsTrendCat4Lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsTrend4Lbl"
+            app:layout_constraintStart_toStartOf="@+id/settingsTrendCat3Lbl"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat3Lbl" />
 
-    <EditText
-        android:id="@+id/settingsTrendCat3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Example 3"
-        app:layout_constraintStart_toStartOf="@+id/settingsTrendCat2"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat2" />
+        <EditText
+            android:id="@+id/settingsTrendCat4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:hint="Timing"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat3" />
 
-    <!-- Six Row of Settings -->
+        <!-- Seventh Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsTrendCat4Lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsTrend4Lbl"
-        app:layout_constraintStart_toStartOf="@+id/settingsTrendCat3Lbl"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat3Lbl" />
+        <TextView
+            android:id="@+id/settingsTrendCat5Lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsTrend5Lbl"
+            app:layout_constraintStart_toStartOf="@+id/settingsTrendCat4Lbl"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat4Lbl" />
 
-    <EditText
-        android:id="@+id/settingsTrendCat4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Example 4"
-        app:layout_constraintStart_toStartOf="@+id/settingsTrendCat3"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat3" />
+        <EditText
+            android:id="@+id/settingsTrendCat5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:hint="BTFD"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat4" />
 
-    <!-- Seventh Row of Settings -->
+        <!-- Eighth Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsTrendCat5Lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsTrend5Lbl"
-        app:layout_constraintStart_toStartOf="@+id/settingsTrendCat4Lbl"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat4Lbl" />
+        <TextView
+            android:id="@+id/settingsAcctNum1Lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsAcct1Lbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat5Lbl" />
 
-    <EditText
-        android:id="@+id/settingsTrendCat5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Example 5"
-        app:layout_constraintStart_toStartOf="@+id/settingsTrendCat4"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat4" />
+        <EditText
+            android:id="@+id/settingsAcctNum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="8dp"
+            android:hint="TD AmeriTrade"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat5" />
 
-    <!-- Eighth Row of Settings -->
+        <!-- Ninth Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsAcctNum1Lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsAcct1Lbl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat5Lbl" />
+        <TextView
+            android:id="@+id/settingsAcctNum2Lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsAcct2Lbl"
+            app:layout_constraintStart_toStartOf="@+id/settingsAcctNum1Lbl"
+            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum1Lbl" />
 
-    <EditText
-        android:id="@+id/settingsAcctNum1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Account # 1"
-        app:layout_constraintEnd_toEndOf="@+id/settingsTrendCat5"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat5" />
+        <EditText
+            android:id="@+id/settingsAcctNum2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:hint="WeBull"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum1" />
 
-    <!-- Ninth Row of Settings -->
+        <!-- Tenth Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsAcctNum2Lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsAcct2Lbl"
-        app:layout_constraintStart_toStartOf="@+id/settingsAcctNum1Lbl"
-        app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum1Lbl" />
+        <TextView
+            android:id="@+id/settingsAcctNum3Lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsAcct3Lbl"
+            app:layout_constraintStart_toStartOf="@+id/settingsAcctNum2Lbl"
+            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum2Lbl" />
 
-    <EditText
-        android:id="@+id/settingsAcctNum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Account # 2"
-        app:layout_constraintStart_toStartOf="@+id/settingsAcctNum1"
-        app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum1" />
+        <EditText
+            android:id="@+id/settingsAcctNum3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:hint="E-Trade"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum2" />
 
-    <!-- Tenth Row of Settings -->
+        <!-- Twevelth Row of Settings -->
 
-    <TextView
-        android:id="@+id/settingsAcctNum3Lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsAcct3Lbl"
-        app:layout_constraintStart_toStartOf="@+id/settingsAcctNum2Lbl"
-        app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum2Lbl" />
+        <TextView
+            android:id="@+id/settingsTradeCounterLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsTradeCountLbl"
+            app:layout_constraintStart_toStartOf="@+id/settingsAcctNum3Lbl"
+            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum3Lbl" />
 
-    <EditText
-        android:id="@+id/settingsAcctNum3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Account # 3"
-        app:layout_constraintStart_toStartOf="@+id/settingsAcctNum2"
-        app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum2" />
+        <Spinner
+            android:id="@+id/settingsTradeCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="Last Week"
+            app:layout_constraintEnd_toEndOf="@+id/settingsAcctNum3"
+            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum3" />
 
-    <!-- Eleventh Row of Settings -->
+        <!-- Export Button -->
 
-    <TextView
-        android:id="@+id/settingsInitialAmountLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsPortAmountLbl"
-        app:layout_constraintStart_toStartOf="@+id/settingsAcctNum3Lbl"
-        app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum3Lbl" />
-
-    <EditText
-        android:id="@+id/settingsInitialAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="$ 1,000.00"
-        app:layout_constraintStart_toStartOf="@+id/settingsAcctNum3"
-        app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum3" />
-
-    <!-- Twevelth Row of Settings -->
-
-    <TextView
-        android:id="@+id/settingsTradeCounterLbl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsTradeCountLbl"
-        app:layout_constraintStart_toStartOf="@+id/settingsInitialAmountLbl"
-        app:layout_constraintTop_toBottomOf="@+id/settingsInitialAmountLbl" />
-
-    <EditText
-        android:id="@+id/settingsTradeCounter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:text="Last Week"
-        app:layout_constraintEnd_toEndOf="@+id/settingsInitialAmount"
-        app:layout_constraintTop_toBottomOf="@+id/settingsInitialAmount" />
-
-    <!-- Export Button -->
-
-    <Button
-        android:id="@+id/settingsExportTradesBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="6dp"
-        android:text="@string/settingsExportBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingsTradeCounter" />
+        <Button
+            android:id="@+id/settingsExportTradesBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="6dp"
+            android:text="@string/settingsExportBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/settingsTradeCounter" />
 
 
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
 </ScrollView>

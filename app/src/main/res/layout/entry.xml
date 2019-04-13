@@ -150,7 +150,7 @@
             android:minLines="6"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:hint="@string/entryDetailsLbl"
+            android:hint="@string/exitDetailsLbl"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/acctNum" />
 

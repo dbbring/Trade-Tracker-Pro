@@ -22,7 +22,8 @@
     <string name="entrySizeLbl">Position Size</string>
     <string name="entryOutcomeCatLbl">Outcome Category</string>
     <string name="entryAcctNumLbl">Account Used</string>
-    <string name="entryDetailsLbl">Enter Trade Notes..</string>
+    <string name="entryDetailsLbl">Entry  Notes..</string>
+    <string name="exitDetailsLbl">Exit Notes..</string>
     <string name="entrySaveBtn">Save Entry</string>
     <string name="summaryLbl">Performance Summary</string>
     <string name="summaryCat1Lbl">Category 1</string>
@@ -47,4 +48,9 @@
     <string name="homeLosingTrendLbl">Losing Trend</string>
     <string name="homeTotalTradesLbl">Total Trades</string>
     <string name="newEntrySuccessful">New Entry Added Successfully!</string>
+    <string-array name="tradeCounterSelection">
+        <item>"Daily"</item>
+        <item>"Weekly"</item>
+        <item>"Monthly"</item>
+    </string-array>
 </resources>

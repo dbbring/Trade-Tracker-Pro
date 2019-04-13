@@ -5,10 +5,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 /*
 ====================== TODO ====================
@@ -17,11 +27,15 @@ Run validation on new entry input.
 Cant enter zero on position size on entry screen?
 Change Colors.
 Figure Net Change for Detailed Entry View.
-
+Settings write to file
+Add 3:05 cst reminder
+change SQL so if no exit trade descrip then you can add one in the view details screen
+export to csv
+use implicent intent to send the csv to w.e. the user wants to share with
+% change and $ change on home screen will represent the trade journal activity over the last week, so all gains minus all losses
  */
 
 public  class TradeTrackerActivity extends AppCompatActivity {
-
     private ImageButton homeBtn;
     private ImageButton performanceBtn;
     private ImageButton entryBtn;
@@ -38,7 +52,7 @@ public  class TradeTrackerActivity extends AppCompatActivity {
         // ============================= Load home Fragment on start up ===========================
 
         if(homeFragment == null) {
-            BaseFragment homeFrag = new BaseFragment();
+            BaseFragment homeFrag = new HomeFragment();
             homeFrag.setLayout(R.layout.home);
             fm.beginTransaction().add(R.id.main_layout, homeFrag).commit();
         }
@@ -47,7 +61,7 @@ public  class TradeTrackerActivity extends AppCompatActivity {
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseFragment homeFrag = new BaseFragment();
+                BaseFragment homeFrag = new HomeFragment();
                 homeFrag.setLayout(R.layout.home);
                 FragmentTransaction transact = getSupportFragmentManager().beginTransaction();
                 transact.replace(R.id.main_layout, homeFrag);
@@ -87,7 +101,7 @@ public  class TradeTrackerActivity extends AppCompatActivity {
         settingsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BaseFragment settingsFrag = new BaseFragment();
+                BaseFragment settingsFrag = new SettingsFragment();
                 settingsFrag.setLayout(R.layout.settings);
                 FragmentTransaction transact = getSupportFragmentManager().beginTransaction();
                 transact.replace(R.id.main_layout, settingsFrag);

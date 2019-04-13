@@ -15,6 +15,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
+import java.util.UUID;
 
 public class TradeEntryFragment extends BaseFragment {
     private Button mDateButton;
@@ -72,6 +74,7 @@ public class TradeEntryFragment extends BaseFragment {
                 mTrade.setEntryTradeDescrip(mEntryDescrip.getText().toString());
                 mTrade.setExitTradeDescrip(mExitDescrip.getText().toString());
                 mTrade.setDate(mDateButton.getText().toString());
+                mTrade.setTradeID(new Random().nextInt());
 
                 TradeEntries.get(getActivity()).addTrade(mTrade);
                 Toast.makeText(getActivity(),R.string.newEntrySuccessful,Toast.LENGTH_SHORT).show();
@@ -101,7 +104,7 @@ public class TradeEntryFragment extends BaseFragment {
 
         if(requestCode == REQUEST_DATE) {
             Date date = (Date) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
-            DateFormat dateFormat = new SimpleDateFormat("mm-dd-yyyy");
+            DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
             String strDate = dateFormat.format(date);
             mDateButton.setText(strDate);
         }

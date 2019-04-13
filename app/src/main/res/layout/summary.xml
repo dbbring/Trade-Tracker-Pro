@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ap="http://schemas.android.com/tools"
     android:id="@+id/performance_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="60dp" >
+    android:layout_marginBottom="60dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,163 +29,32 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <!-- Category 1 Area-->
+        <!-- Category Charting Area-->
 
         <TextView
             android:id="@+id/performCat1Lbl"
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:gravity="center"
             android:paddingLeft="20dp"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/summaryCat1Lbl"
-            app:layout_constraintEnd_toEndOf="@+id/performCat1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/performanceTitle" />
 
-        <TextView
+        <com.androidplot.xy.XYPlot
             android:id="@+id/performCat1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:text="chart goes here"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/performCat1Lbl" />
-
-        <!-- Category 2 Area-->
-
-        <TextView
-            android:id="@+id/performCat2Lbl"
-            style="?android:listSeparatorTextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
-            android:paddingTop="6dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="6dp"
-            android:text="@string/summaryCat2Lbl"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/performCat2"
-            app:layout_constraintTop_toBottomOf="@+id/performanceTitle" />
-
-        <TextView
-            android:id="@+id/performCat2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:paddingTop="6dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="6dp"
-            android:text="chart goes here"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/performCat2Lbl" />
-
-
-        <!-- Category 3 Area-->
-
-        <TextView
-            android:id="@+id/performCat3Lbl"
-            style="?android:listSeparatorTextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:text="@string/summaryCat3Lbl"
-            app:layout_constraintEnd_toEndOf="@+id/performCat3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/performCat1" />
-
-        <TextView
-            android:id="@+id/performCat3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:text="chart goes here"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/performCat3Lbl" />
-
-        <!-- Category 4 Area-->
-
-        <TextView
-            android:id="@+id/performCat4Lbl"
-            style="?android:listSeparatorTextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
-            android:paddingTop="6dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="6dp"
-            android:text="@string/summaryCat4Lbl"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/performCat4"
-            app:layout_constraintTop_toBottomOf="@+id/performCat2" />
-
-        <TextView
-            android:id="@+id/performCat4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:paddingTop="6dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="6dp"
-            android:text="chart goes here"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/performCat4Lbl" />
-
-
-        <!--Category 5 Area-->
-
-        <TextView
-            android:id="@+id/performCat5Lbl"
-            style="?android:listSeparatorTextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
-            android:paddingLeft="20dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:text="@string/summaryCat5Lbl"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/performCat4" />
-
-        <TextView
-            android:id="@+id/performCat5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:text="chart goes here"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/performCat5Lbl" />
-
+            app:layout_constraintTop_toBottomOf="@+id/performCat1Lbl"
+            ap:lineLabels="left|bottom"
+            ap:lineLabelRotationBottom="-45"/>
 
         <!-- Recycler View of Past Trades-->
 
@@ -198,7 +67,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/performCat5" />
+            app:layout_constraintTop_toBottomOf="@+id/performCat1" />
 
 
     </android.support.constraint.ConstraintLayout>
