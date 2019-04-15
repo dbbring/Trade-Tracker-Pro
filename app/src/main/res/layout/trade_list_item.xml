@@ -4,17 +4,17 @@
     android:layout_height="wrap_content" android:padding="8dp">
 
     <TextView
+        android:id="@+id/trade_ticker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/trade_ticker"
         android:text="Trade Title"
-        />
+        android:textColor="@color/ap_black" />
 
     <TextView
+        android:id="@+id/trade_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/trade_date"
         android:text="Trade Date"
-        />
+        android:textColor="@color/ap_black" />
 
 </LinearLayout>

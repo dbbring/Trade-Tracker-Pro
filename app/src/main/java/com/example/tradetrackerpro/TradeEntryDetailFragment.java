@@ -17,7 +17,7 @@ public class TradeEntryDetailFragment extends BaseFragment {
     private TextView mTicker;
     private TextView mDate;
     private TextView mEntryPrice;
-    private TextView mExitPrice;
+    private EditText mExitPrice;
     private TextView mSize;
     private TextView mEntryDescrip;
     private EditText mExitDescrip;
@@ -41,7 +41,10 @@ public class TradeEntryDetailFragment extends BaseFragment {
         mEntryPrice = (TextView) view.findViewById(R.id.detailViewEntryPrice);
         mEntryPrice.setText("Entry: $" + mTrade.getEntryPrice());
 
-        mExitPrice = (TextView) view.findViewById(R.id.detailViewExitPrice);
+        mExitPrice = (EditText) view.findViewById(R.id.detailViewExitPrice);
+        if(mTrade.getExitPrice() == 0.00) {
+            mExitPrice.setEnabled(true);
+        }
         mExitPrice.setText("Exit: $" + mTrade.getExitPrice());
 
         mSize = (TextView) view.findViewById(R.id.detailViewSize);

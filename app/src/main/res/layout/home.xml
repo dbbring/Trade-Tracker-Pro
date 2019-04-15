@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:ap="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,6 +22,7 @@
             android:paddingTop="24dp"
             android:paddingBottom="24dp"
             android:text="Important Message Area"
+            android:textColor="@color/colorAccent"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +41,7 @@
             android:layout_marginEnd="8dp"
             android:gravity="center"
             android:text="@string/homeTotalTradesLbl"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeMessageArea" />
@@ -54,6 +54,7 @@
             android:layout_marginEnd="8dp"
             android:gravity="center_horizontal"
             android:text="5"
+            android:textColor="@color/ap_black"
             android:textSize="75dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +72,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="@string/homePortChgPercentLbl"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="@+id/homePercentChange"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeTotalTrades" />
@@ -82,6 +84,7 @@
             android:layout_marginStart="16dp"
             android:gravity="center_horizontal"
             android:text="18%"
+            android:textColor="@color/ap_black"
             android:textSize="35dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homePercentChangeLbl" />
@@ -98,6 +101,7 @@
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:text="@string/homePortChgMoneyLbl"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/homeMoneyChange"
             app:layout_constraintTop_toBottomOf="@+id/homeTotalTrades" />
@@ -109,6 +113,7 @@
             android:layout_marginEnd="16dp"
             android:gravity="center_horizontal"
             android:text="$426.25"
+            android:textColor="@color/ap_black"
             android:textSize="35dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeMoneyChangeLbl" />
@@ -129,6 +134,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/homeLosingTrendLbl"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="@+id/homeLosingTrend"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homePercentChange" />
@@ -162,6 +168,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/homeWinningTrendLbl"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeLosingTrend" />

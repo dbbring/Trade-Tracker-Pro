@@ -23,6 +23,7 @@
             android:paddingTop="24dp"
             android:paddingBottom="24dp"
             android:text="@string/entryLbl"
+            android:textColor="@color/colorPrimary"
             android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,10 +37,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
+            android:hint="@string/entryTickerLbl"
             android:paddingLeft="20dp"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:hint="@string/entryTickerLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/entryTitle" />
         <!-- Enter Date -->
@@ -63,10 +65,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
+            android:hint="@string/entryEntryPriceLbl"
             android:paddingLeft="20dp"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:hint="@string/entryEntryPriceLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/entryTicker" />
         <!-- Enter Exit Price -->
@@ -76,9 +79,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
+            android:hint="@string/entryExitPriceLbl"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:hint="@string/entryExitPriceLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dateBtn" />
 
@@ -88,10 +92,11 @@
             android:id="@+id/entrySize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:hint="@string/entrySizeLbl"
             android:paddingLeft="20dp"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:hint="@string/entrySizeLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintStart_toStartOf="@+id/entryEntryPrice"
             app:layout_constraintTop_toBottomOf="@+id/entryEntryPrice" />
         <!-- Enter Category Selection -->
@@ -139,6 +144,7 @@
             android:minLines="6"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/acctNum" />
@@ -155,6 +161,7 @@
             android:minLines="6"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tradeEntryDescrip" />

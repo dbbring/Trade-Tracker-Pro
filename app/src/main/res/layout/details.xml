@@ -23,6 +23,7 @@
             android:paddingTop="24dp"
             android:paddingBottom="24dp"
             android:text="@string/detailsLbl"
+            android:textColor="@color/colorPrimary"
             android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +41,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/detailsTickerLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewTitle" />
         <!-- Date Area-->
@@ -51,6 +53,7 @@
             android:layout_marginEnd="16dp"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewTitle" />
 
@@ -66,18 +69,22 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/detailsEntryPriceLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewTicker" />
         <!-- Exit Price Area -->
-        <TextView
+        <EditText
             android:id="@+id/detailViewExitPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:enabled="false"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/detailsExitPriceLbl"
+            android:textColor="@color/ap_black"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewDate" />
 
@@ -93,6 +100,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/detailsSizeLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewEntryPrice" />
         <!-- Percentage Change Area-->
@@ -105,6 +113,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/detailsChangeLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewExitPrice" />
 
@@ -120,6 +129,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/detailsCatLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewSize" />
         <!-- Account Selection -->
@@ -132,6 +142,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/detailsAcctLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewNetChange" />
 
@@ -149,22 +160,24 @@
             android:paddingTop="50dp"
             android:paddingBottom="6dp"
             android:text="@string/detailsDescripLbl"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewCategory" />
 
         <EditText
-            android:enabled="false"
             android:id="@+id/detailViewExitTradeDescrip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
+            android:enabled="false"
+            android:hint="Exit Notes..."
             android:minLines="6"
             android:paddingTop="50dp"
             android:paddingBottom="6dp"
-            android:hint="Exit Notes..."
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewEntryTradeDescrip" />

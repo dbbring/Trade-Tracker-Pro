@@ -16,9 +16,15 @@ import com.androidplot.ui.TableOrder;
 import com.androidplot.ui.VerticalPositioning;
 import com.androidplot.util.PixelUtils;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class HomeFragment extends BaseFragment {
     private Settings mSettings;
+    private TradeEntries mTradeEntries;
     private TextView mImportantMessage;
     private String msg;
     private TextView mNumberOfTrades;
@@ -31,6 +37,10 @@ public class HomeFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home, container, false);
         mSettings = Settings.get(getContext());
+        mTradeEntries = TradeEntries.get(getContext());
+
+        List<Trade> trades = mTradeEntries.getTradesBetweenDates("Weekly");
+        double totalAmount = 0.00;
 
         mImportantMessage = (TextView) view.findViewById(R.id.homeMessageArea);
         mNumberOfTrades = (TextView) view.findViewById(R.id.homeTotalTrades);
@@ -38,15 +48,28 @@ public class HomeFragment extends BaseFragment {
         mMoneyChange = (TextView) view.findViewById(R.id.homeMoneyChange);
         mLosingPieChart = (PieChart) view.findViewById(R.id.homeLosingTrend);
         mWinningPieChart = (PieChart) view.findViewById(R.id.homeWinningTrend);
+
         msg = mSettings.getImportantMessage();
         // Check for important messages, if we are null then dont worry about it
         // On initial load, after the user visits the settings screen then the important msg is null
-        if (msg == null) {
+        mSettings = Settings.get(getContext());
+        if (msg == null || msg.equals("null")) {
             mImportantMessage.setVisibility(View.GONE);
         }
         else {
             mImportantMessage.setText(msg);
         }
+
+        mNumberOfTrades.setText(Integer.toString(trades.size()));
+
+        for(Trade trade : trades) {
+            totalAmount += (trade.getExitPrice() - trade.getEntryPrice()) * trade.getPositionSize();
+        }
+        DecimalFormat totalAmountFormatter = new DecimalFormat("#.00");
+        mMoneyChange.setText(totalAmountFormatter.format(totalAmount));
+
+        // sort through data if above 0 then its a win if below 0 its a loss
+        // then grab top 2 cats of each to display charts and number of occurances
 
         CreatePieChart(mLosingPieChart,"BTFD",10,"Hesistaion", 15,
                 "",0,"", 0, "", 0);

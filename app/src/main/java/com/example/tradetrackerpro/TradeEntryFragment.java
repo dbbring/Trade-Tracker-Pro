@@ -81,30 +81,45 @@ public class TradeEntryFragment extends BaseFragment {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTrade = new Trade();
+                Validation validator = new Validation();
 
-                mTrade.setTicker(mTicker.getText().toString());
-                mTrade.setEntryPrice(Double.parseDouble(mEntryPrice.getText().toString()));
-                mTrade.setExitPrice(Double.parseDouble(mExitPrice.getText().toString()));
-                mTrade.setPositionSize(Integer.parseInt(mSize.getText().toString()));
-                mTrade.setOutcomeCat(mOutcomeCat.getSelectedItem().toString());
-                mTrade.setAcctNum(mAcctNum.getSelectedItem().toString());
-                mTrade.setEntryTradeDescrip(mEntryDescrip.getText().toString());
-                mTrade.setExitTradeDescrip(mExitDescrip.getText().toString());
-                mTrade.setDate(mDateButton.getText().toString());
-                mTrade.setTradeID(new Random().nextInt());
+                String ticker = (validator.isNullOrEmpty(mTicker.getText().toString())) ? "" : mTicker.getText().toString();
+                double entryPrice = (!validator.isNumeric(mEntryPrice.getText().toString())) ? Double.parseDouble(mEntryPrice.getText().toString()) : 0.00;
+                double exitPrice = (!validator.isNumeric(mExitPrice.getText().toString())) ? Double.parseDouble(mExitPrice.getText().toString()) : 0.00;
+                int size = (validator.isNumeric(mSize.getText().toString())) ? Integer.parseInt(mSize.getText().toString()) : 0;
+                String date = (validator.isNullOrEmpty(mDateButton.getText().toString()) ||
+                        mDateButton.getText().toString().equals("Enter Date")) ? "" : mDateButton.getText().toString();
+                String entryNote = (validator.isNullOrEmpty(mEntryDescrip.getText().toString())) ? "" : mEntryDescrip.getText().toString();
 
-                TradeEntries.get(getActivity()).addTrade(mTrade);
-                Toast.makeText(getActivity(),R.string.newEntrySuccessful,Toast.LENGTH_SHORT).show();
+                if (ticker.equals("") || size == 0 || entryPrice == 0.00 || date.equals("") || entryNote.equals("")) {
+                    Toast.makeText(getContext(), R.string.entryNotValid, Toast.LENGTH_LONG).show();
+                }
+                else {
+                    mTrade = new Trade();
 
-                mTicker.setText("");
-                mEntryPrice.setText("");
-                mExitPrice.setText("");
-                mSize.setText("");
-                mDateButton.setText("Enter Date");
-                mEntryDescrip.setText("");
-                mExitDescrip.setText("");
+                    mTrade.setTicker(ticker);
+                    mTrade.setEntryPrice(entryPrice);
+                    mTrade.setExitPrice(exitPrice);
+                    mTrade.setPositionSize(size);
+                    mTrade.setOutcomeCat(mOutcomeCat.getSelectedItem().toString());
+                    mTrade.setAcctNum(mAcctNum.getSelectedItem().toString());
+                    mTrade.setEntryTradeDescrip(entryNote);
+                    mTrade.setExitTradeDescrip(mExitDescrip.getText().toString());
+                    mTrade.setDate(mDateButton.getText().toString());
+                    // Hack for ID col
+                    mTrade.setTradeID(new Random().nextInt());
 
+                    TradeEntries.get(getActivity()).addTrade(mTrade);
+                    Toast.makeText(getActivity(), R.string.newEntrySuccessful, Toast.LENGTH_SHORT).show();
+
+                    mTicker.setText("");
+                    mEntryPrice.setText("");
+                    mExitPrice.setText("");
+                    mSize.setText("");
+                    mDateButton.setText("Enter Date");
+                    mEntryDescrip.setText("");
+                    mExitDescrip.setText("");
+                }
             }
         });
 

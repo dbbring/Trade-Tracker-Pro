@@ -22,6 +22,7 @@
             android:paddingTop="24dp"
             android:paddingBottom="24dp"
             android:text="@string/settingsLbl"
+            android:textColor="@color/colorPrimary"
             android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +39,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/settingsExportEmailLbl"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
 
@@ -46,10 +48,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="1dp"
-            android:layout_marginRight="1dp"
+            android:hint="johnDoe@john.com"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:hint="johnDoe@john.com"
+            android:textAlignment="textEnd"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
 
@@ -64,6 +67,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/settingsTrend1Lbl"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsExportEmailAddressLbl" />
 
@@ -73,9 +77,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="8dp"
+            android:hint="Hesitation"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:hint="Hesitation"
+            android:textAlignment="textEnd"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsExportEmailAddress" />
 
@@ -90,6 +96,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/settingsTrend2Lbl"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@+id/settingsTrendCat1Lbl"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat1Lbl" />
 
@@ -101,6 +108,8 @@
             android:hint="Fear"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat1" />
 
@@ -115,6 +124,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/settingsTrend3Lbl"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@+id/settingsTrendCat2Lbl"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat2Lbl" />
 
@@ -126,6 +136,8 @@
             android:hint="Not Cutting Losses"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat2" />
 
@@ -140,6 +152,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/settingsTrend4Lbl"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@+id/settingsTrendCat3Lbl"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat3Lbl" />
 
@@ -151,6 +164,8 @@
             android:hint="Timing"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat3" />
 
@@ -165,6 +180,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/settingsTrend5Lbl"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@+id/settingsTrendCat4Lbl"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat4Lbl" />
 
@@ -176,6 +192,8 @@
             android:hint="BTFD"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat4" />
 
@@ -190,6 +208,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/settingsAcct1Lbl"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat5Lbl" />
 
@@ -202,6 +221,8 @@
             android:hint="TD AmeriTrade"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsTrendCat5" />
 
@@ -217,7 +238,8 @@
             android:paddingBottom="6dp"
             android:text="@string/settingsAcct2Lbl"
             app:layout_constraintStart_toStartOf="@+id/settingsAcctNum1Lbl"
-            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum1Lbl" />
+            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum1Lbl"
+            android:textColor="@color/colorAccent" />
 
         <EditText
             android:id="@+id/settingsAcctNum2"
@@ -227,6 +249,8 @@
             android:hint="WeBull"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum1" />
 
@@ -241,6 +265,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/settingsAcct3Lbl"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@+id/settingsAcctNum2Lbl"
             app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum2Lbl" />
 
@@ -252,8 +277,10 @@
             android:hint="E-Trade"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
+            android:textAlignment="textEnd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum2" />
+            app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum2"
+            android:textColor="@color/ap_black" />
 
         <!-- Twevelth Row of Settings -->
 
@@ -266,6 +293,7 @@
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
             android:text="@string/settingsTradeCountLbl"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="@+id/settingsAcctNum3Lbl"
             app:layout_constraintTop_toBottomOf="@+id/settingsAcctNum3Lbl" />
 

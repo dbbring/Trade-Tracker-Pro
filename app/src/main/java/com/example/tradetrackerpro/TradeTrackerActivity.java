@@ -7,20 +7,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 /*
 ====================== TODO ====================
-Run validation on new entry input.
-Cant enter zero on position size on entry screen?
-Change Colors.
 Figure Net Change for Detailed Entry View.
+
 Add 3:05 cst reminder
+
 export to csv
+set csv file name to something decent
 use implicent intent to send the csv to w.e. the user wants to share with
+
 % change and $ change on home screen will represent the trade journal activity over the last week, so all gains minus all losses
 Populate charts with real data
 Update exit descrip from detail view onStop()
+have to update exit price for entry only jounral logs
+details view, have labels so we are not just setting Exit: $ via the set text option otherwise it will get overwrote
  */
 
 public  class TradeTrackerActivity extends AppCompatActivity {

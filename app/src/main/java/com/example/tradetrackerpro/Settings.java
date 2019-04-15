@@ -84,7 +84,7 @@ public class Settings {
         mAcct1 = "";
         mAcct2 = "";
         mAcct3 = "";
-        mTradeCounter = "";
+        mTradeCounter = "Daily";
         mImportantMessage = "Welcome to Trade Tracker Pro! Here you will find important messages in the future...";
     }
 

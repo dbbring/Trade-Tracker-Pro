@@ -5,8 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Date;
 
@@ -37,6 +41,7 @@ public class TradeEntries {
         mContext = context.getApplicationContext();
         mDatabase = new TradesBaseHelper(mContext).getWritableDatabase();
     }
+
     public List<Trade> getTrades(){
         List<Trade> trades = new ArrayList<>();
         TradeCursorWrapper cursor = queryTrades(null, null);
@@ -53,6 +58,44 @@ public class TradeEntries {
         }
 
         return trades;
+    }
+
+    public List<Trade> getTradesBetweenDates(String dateRange) {
+        List<Trade> trades = new ArrayList<>();
+        DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        Calendar referenceDate = Calendar.getInstance();
+        Date today = Calendar.getInstance().getTime();
+        referenceDate.setTime(today);
+        if (dateRange != null) {
+            switch (dateRange) {
+                case "Daily":
+                    referenceDate.add(Calendar.DATE, -1);
+                    break;
+                case "Weekly":
+                    referenceDate.add(Calendar.DATE, -7);
+                    break;
+                case "Monthly":
+                    referenceDate.add(Calendar.DATE, -30);
+                    break;
+            }
+            String referenceDateString = dateFormat.format(referenceDate.getTime());
+            String todayString = dateFormat.format(today);
+            TradeCursorWrapper cursor = queryTrades(TradesTable.Cols.DATE + " BETWEEN ? AND ?",new String[] {referenceDateString, todayString});
+
+            try {
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+                    trades.add(cursor.getTrade());
+                    cursor.moveToNext();
+                }
+            } finally {
+                cursor.close();
+            }
+            return trades;
+        }
+        else {
+            return trades;
+        }
     }
 
     public Trade getTrade(int _id) {
