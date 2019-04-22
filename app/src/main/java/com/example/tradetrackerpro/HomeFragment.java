@@ -2,6 +2,7 @@ package com.example.tradetrackerpro;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,7 +109,11 @@ public class HomeFragment extends BaseFragment {
         winningChartValues.add(new KeyValue(mSettings.getCat3(), winningCat3));
         winningChartValues.add(new KeyValue(mSettings.getCat4(), winningCat4));
         winningChartValues.add(new KeyValue(mSettings.getCat5(), winningCat5));
-        Collections.sort(winningChartValues, new DescSort());
+        Collections.sort(winningChartValues, Collections.<KeyValue>reverseOrder());
+
+        for(KeyValue kv : winningChartValues) {
+            Log.d("KV", kv.getKey() + "/" + kv.getValue());
+        }
 
         CreatePieChart(mWinningPieChart,winningChartValues.get(0).getKey(),winningChartValues.get(0).getValue(),
                         winningChartValues.get(1).getKey(), winningChartValues.get(1).getValue());
@@ -119,7 +124,7 @@ public class HomeFragment extends BaseFragment {
         losingChartValues.add(new KeyValue(mSettings.getCat3(), losingCat3));
         losingChartValues.add(new KeyValue(mSettings.getCat4(), losingCat4));
         losingChartValues.add(new KeyValue(mSettings.getCat5(), losingCat5));
-        Collections.sort(losingChartValues, new DescSort());
+        Collections.sort(losingChartValues, Collections.<KeyValue>reverseOrder());
 
         CreatePieChart(mLosingPieChart,losingChartValues.get(0).getKey(),losingChartValues.get(0).getValue(),
                 losingChartValues.get(1).getKey(), losingChartValues.get(1).getValue());
@@ -129,7 +134,7 @@ public class HomeFragment extends BaseFragment {
 
     /*
     @ params - PieChart, String, int, String, int
-    @ descrip - Sets up a new pie chart with up to 2 segements. title and value are args. Because we have 5 categories
+    @ descrip - Sets up a new pie chart with up to 2 segments. title and value are args. Because we have 5 categories
                We are picking the top two for each winning and losing
      */
     public void CreatePieChart(PieChart pie, String seg1title, int segment1Val, String seg2title, int segment2Val) {
@@ -145,8 +150,8 @@ public class HomeFragment extends BaseFragment {
         Segment s2 = new Segment(seg2title, segment2Val);
 
         // Set up our colors
-        SegmentFormatter sf1 = new SegmentFormatter(Color.BLACK);
-        SegmentFormatter sf2 = new SegmentFormatter(Color.BLUE);
+        SegmentFormatter sf1 = new SegmentFormatter(Color.CYAN);
+        SegmentFormatter sf2 = new SegmentFormatter(Color.DKGRAY);
 
         pie.addSegment(s1, sf1);
         pie.addSegment(s2, sf2);
@@ -156,12 +161,18 @@ public class HomeFragment extends BaseFragment {
     The KeyValue class is a simple class that allows an key value object to be made. Useful for tracking
     integer values with an name. Similar to a Python dictionary.
      */
-    private class KeyValue {
+    private class KeyValue implements Comparable<Object>{
         private String key;
         private int value;
 
         public String getKey() {
             return key;
+        }
+
+        @Override
+        public int compareTo(Object o){
+            KeyValue kv = (KeyValue) o;
+            return this.value - kv.value;
         }
 
         public int getValue() {
@@ -173,17 +184,6 @@ public class HomeFragment extends BaseFragment {
             value = _value;
         }
 
-    }
-
-    /*
-    Simple class for sorting Collection objects in a descending order. Similar to the JavaScript comparing function.
-     */
-    private class DescSort implements Comparator<KeyValue>
-    {
-        public int compare(KeyValue a, KeyValue b)
-        {
-            return a.value + b.value;
-        }
     }
 
 }
