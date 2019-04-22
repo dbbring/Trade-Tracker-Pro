@@ -10,7 +10,6 @@ import java.io.InputStreamReader;
 
 public class Settings {
     private static Settings sSettings;
-    private String mEmail;
     private String mCat1;
     private String mCat2;
     private String mCat3;
@@ -49,17 +48,16 @@ public class Settings {
                 // I dont like this, Too closely coupled with the class. If you add a member to this
                 // class be sure to write to the settings file in SettingsFragment.java so it will
                 // be picked up here
-                mEmail = InputSettingString[0];
-                mCat1 = InputSettingString[1];
-                mCat2 = InputSettingString[2];
-                mCat3 = InputSettingString[3];
-                mCat4 = InputSettingString[4];
-                mCat5 = InputSettingString[5];
-                mAcct1 = InputSettingString[6];
-                mAcct2 = InputSettingString[7];
-                mAcct3 = InputSettingString[8];
-                mTradeCounter = InputSettingString[9];
-                mImportantMessage = InputSettingString[10];
+                mCat1 = InputSettingString[0];
+                mCat2 = InputSettingString[1];
+                mCat3 = InputSettingString[2];
+                mCat4 = InputSettingString[3];
+                mCat5 = InputSettingString[4];
+                mAcct1 = InputSettingString[5];
+                mAcct2 = InputSettingString[6];
+                mAcct3 = InputSettingString[7];
+                mTradeCounter = InputSettingString[8];
+                mImportantMessage = InputSettingString[9];
             }
             else {
                 defaultSettings();
@@ -75,7 +73,6 @@ public class Settings {
     }
 
     private void defaultSettings() {
-        mEmail = "";
         mCat1 = "";
         mCat2 = "";
         mCat3 = "";
@@ -85,7 +82,7 @@ public class Settings {
         mAcct2 = "";
         mAcct3 = "";
         mTradeCounter = "Daily";
-        mImportantMessage = "Welcome to Trade Tracker Pro! Here you will find important messages in the future...";
+        mImportantMessage = "Welcome to Trade Tracker Pro! \n Please Fill In Your Settings..";
     }
 
     public static Settings get(Context context) {
@@ -98,14 +95,6 @@ public class Settings {
         }
     }
 
-
-    public String getEmail() {
-        return mEmail;
-    }
-
-    public void setEmail(String email) {
-        mEmail = email;
-    }
 
     public String getCat1() {
         return mCat1;

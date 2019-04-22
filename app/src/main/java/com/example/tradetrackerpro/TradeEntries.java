@@ -4,15 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import android.widget.Toast;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Date;
 
 import static com.example.tradetrackerpro.tradesDbSchema.*;
 
@@ -28,6 +24,11 @@ public class TradeEntries {
 
     public void deleteTrade(Trade trade) {
         mDatabase.delete(TradesTable.NAME,TradesTable.Cols.ID + " = ? ",new String[] {Integer.toString(trade.getTradeID())});
+    }
+
+    public void updateTrade(Trade trade) {
+        ContentValues values = getContentValues(trade);
+        mDatabase.update(TradesTable.NAME,values ,TradesTable.Cols.ID + " = ? ",new String[] {Integer.toString(trade.getTradeID())});
     }
 
     public static TradeEntries get(Context context){
@@ -59,27 +60,36 @@ public class TradeEntries {
 
         return trades;
     }
-
-    public List<Trade> getTradesBetweenDates(String dateRange) {
+    // Multiplier is how many "periods" you want to look back
+    public List<Trade> getTradesBetweenDates(String dateRange, int multiplier) {
         List<Trade> trades = new ArrayList<>();
         DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
         Calendar referenceDate = Calendar.getInstance();
-        Date today = Calendar.getInstance().getTime();
-        referenceDate.setTime(today);
+        Calendar today = Calendar.getInstance();
+        referenceDate.setTime(today.getTime());
         if (dateRange != null) {
             switch (dateRange) {
                 case "Daily":
-                    referenceDate.add(Calendar.DATE, -1);
+                    today.add(Calendar.DATE, (-1 * (multiplier - 1)));
+                    referenceDate.add(Calendar.DATE, (-1 * multiplier));
+
                     break;
                 case "Weekly":
-                    referenceDate.add(Calendar.DATE, -7);
+                    today.add(Calendar.DATE, (-7 * (multiplier - 1)));
+                    referenceDate.add(Calendar.DATE, (-7 * multiplier));
                     break;
                 case "Monthly":
-                    referenceDate.add(Calendar.DATE, -30);
+                    today.add(Calendar.DATE, (-30 * (multiplier - 1)));
+                    referenceDate.add(Calendar.DATE, (-30 * multiplier));
                     break;
+                default:
+                    // use weekly if we have any errors on the input. Input should be from a drop down list
+                    // so if we have an error something is mutating the input string. But we should cover our ass just in case.
+                    today.add(Calendar.DATE, (-7 * (multiplier - 1)));
+                    referenceDate.add(Calendar.DATE, (-7 * multiplier));
             }
             String referenceDateString = dateFormat.format(referenceDate.getTime());
-            String todayString = dateFormat.format(today);
+            String todayString = dateFormat.format(today.getTime());
             TradeCursorWrapper cursor = queryTrades(TradesTable.Cols.DATE + " BETWEEN ? AND ?",new String[] {referenceDateString, todayString});
 
             try {
@@ -113,7 +123,6 @@ public class TradeEntries {
             cursor.close();
         }
     }
-
 
     private TradeCursorWrapper queryTrades(String whereClause, String[] whereArgs){
         Cursor cursor = mDatabase.query(TradesTable.NAME,

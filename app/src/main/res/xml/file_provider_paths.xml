@@ -2,6 +2,6 @@
 <resources>
     <paths>
         <cache-path name="cache" path="/"></cache-path>
-        <files-path name="files" path=""></files-path>
+        <files-path name="files" path="/"></files-path>
     </paths>
 </resources>

@@ -10,7 +10,6 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -32,6 +31,7 @@ public class DatePickerFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
+
         Date date = (Date) getArguments().getSerializable(ARG_DATE);
 
         Calendar calendar = Calendar.getInstance();
@@ -56,6 +56,10 @@ public class DatePickerFragment extends DialogFragment {
         }).create();
     }
 
+    /*
+    @params - int, Date
+    @descrip - See if user selected a date, if so send the date object back to the frag that called it
+     */
     private void sendResult(int resultCode, Date date) {
         if (getTargetFragment() == null) {
             return;

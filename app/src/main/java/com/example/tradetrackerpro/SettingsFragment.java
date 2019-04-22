@@ -2,6 +2,8 @@ package com.example.tradetrackerpro;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.FileProvider;
 import android.view.LayoutInflater;
@@ -12,22 +14,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.opencsv.CSVWriter;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-
-import javax.xml.validation.Validator;
+import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
 
 public class SettingsFragment extends BaseFragment {
         private Settings mSettings;
-        private EditText mEmailField;
         private EditText mCat1Field;
         private EditText mCat2Field;
         private EditText mCat3Field;
@@ -46,9 +44,6 @@ public class SettingsFragment extends BaseFragment {
 
             View view = inflater.inflate(R.layout.settings, container, false);
             mSettings = Settings.get(getContext());
-
-            mEmailField = (EditText) view.findViewById(R.id.settingsExportEmailAddress);
-            mEmailField.setText(mSettings.getEmail());
 
             mCat1Field = (EditText) view.findViewById(R.id.settingsTrendCat1);
             mCat1Field.setText(mSettings.getCat1());
@@ -78,7 +73,7 @@ public class SettingsFragment extends BaseFragment {
             mExportBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    writeDataLineByLine(getContext(),"test.csv");
+                    writeDataLineByLine(getContext(),"exportTradeData.csv");
 
                 }
             });
@@ -105,7 +100,6 @@ public class SettingsFragment extends BaseFragment {
             Validation Vaildator = new Validation();
             mSettings.setImportantMessage(null);
             // Validate settings
-            String email = (Vaildator.isValidEmail(mEmailField.getText().toString())) ? mEmailField.getText().toString() : "";
             String cat1 = (!Vaildator.isNullOrEmpty(mCat1Field.getText().toString())) ? mCat1Field.getText().toString() : "";
             String cat2 = (!Vaildator.isNullOrEmpty(mCat2Field.getText().toString())) ? mCat2Field.getText().toString() : "";
             String cat3 = (!Vaildator.isNullOrEmpty(mCat3Field.getText().toString())) ? mCat3Field.getText().toString() : "";
@@ -115,12 +109,11 @@ public class SettingsFragment extends BaseFragment {
             String acct2 = (!Vaildator.isNullOrEmpty(mAcct2Field.getText().toString())) ? mAcct2Field.getText().toString() : "";
             String acct3 = (!Vaildator.isNullOrEmpty(mAcct3Field.getText().toString())) ? mAcct3Field.getText().toString() : "";
             // If anything is blank throw error to important message block
-            if (email.equals("") || cat1.equals("") || cat2.equals("") || cat3.equals("") || cat4.equals("") || cat5.equals("")
+            if (cat1.equals("") || cat2.equals("") || cat3.equals("") || cat4.equals("") || cat5.equals("")
             || acct1.equals("") || acct2.equals("") || acct3.equals("")) {
                 mSettings.setImportantMessage("Please Enter Your Settings!");
             }
             // Set our singleton Settings class so our new enteries will be available without restarting
-            mSettings.setEmail(email);
             mSettings.setCat1(cat1);
             mSettings.setCat2(cat2);
             mSettings.setCat3(cat3);
@@ -133,7 +126,7 @@ public class SettingsFragment extends BaseFragment {
             // Write to file to save for persistant storage
             try {
                 OutputStreamWriter writer = new OutputStreamWriter(getContext().openFileOutput("settings.txt", MODE_PRIVATE));
-                writer.write(mSettings.getEmail() + "," + mSettings.getCat1() + "," + mSettings.getCat2() + "," + mSettings.getCat3()  + ","
+                writer.write(mSettings.getCat1() + "," + mSettings.getCat2() + "," + mSettings.getCat3()  + ","
                         + mSettings.getCat4() + "," + mSettings.getCat5() + "," + mSettings.getAcct1() + "," + mSettings.getAcct2() + "," +
                         mSettings.getAcct3() + "," + mSettings.getTradeCounter() + "," + mSettings.getImportantMessage());
                 writer.close();
@@ -145,39 +138,44 @@ public class SettingsFragment extends BaseFragment {
             super.onPause();
         }
 
-    public static void writeDataLineByLine(Context context, String filePath)
+    private void writeDataLineByLine(Context context, String filePath)
     {
-        // first create file object for file placed at location
-        // specified by filepath
-        File file = new File(context.getFilesDir().getPath() + filePath);
-        Toast.makeText(context, context.getFilesDir().getPath(), Toast.LENGTH_LONG).show();
+        File file = new File(context.getFilesDir().getPath() + "/" + filePath);
+        List<Trade> allTrades = TradeEntries.get(context).getTrades();
         try {
             file.createNewFile();
-            // create FileWriter object with file as parameter
             FileWriter outputfile = new FileWriter(file);
-
-            // create CSVWriter object filewriter object as parameter
             CSVWriter writer = new CSVWriter(outputfile);
 
-            // adding header to csv
-            String[] header = { "Name", "Class", "Marks" };
+            String[] header = { "Ticker", "Entry Price", "Exit Price", "Date", "Shares", "Account", "Outcome Category",
+                               "Entry Notes", "Exit Notes"};
             writer.writeNext(header);
 
-            // add data to csv
-            String[] data1 = { "Aman", "10", "620" };
-            writer.writeNext(data1);
-            String[] data2 = { "Suraj", "10", "630" };
-            writer.writeNext(data2);
-
-            // closing writer connection
+            for (Trade trade : allTrades) {
+                String[] data = { trade.getTicker(),
+                                  Double.toString(trade.getEntryPrice()),
+                                  Double.toString(trade.getExitPrice()),
+                                  trade.getDate(),
+                                  Integer.toString(trade.getPositionSize()),
+                                  trade.getAcctNum(),
+                                  trade.getOutcomeCat(),
+                                  trade.getEntryTradeDescrip(),
+                                  trade.getExitTradeDescrip()};
+                writer.writeNext(data);
+            }
             writer.close();
-            //Intent intent = new Intent(Intent.ACTION_SEND);
-            //intent.setType("text/csv");
-            //intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-            //intent.putExtra(Intent.)
-
-            //Toast.makeText(context, "Successfully Exported",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/csv");
+            // Use FileProvider for safe access from other apps to TTP's directory
+            Uri uri = FileProvider.getUriForFile(context, "com.example.tradetrackerpro", file);
+            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.putExtra(Intent.EXTRA_STREAM, uri);
+            // Make sure our new app can handle it
+            PackageManager pm = getActivity().getPackageManager();
+            if (intent.resolveActivity(pm) != null) {
+                startActivity(Intent.createChooser(intent,"Export With:"));
+            }
         }
         catch (IOException e) {
             // TODO Auto-generated catch block

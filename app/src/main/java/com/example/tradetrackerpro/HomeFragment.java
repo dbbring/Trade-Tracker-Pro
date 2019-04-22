@@ -15,10 +15,10 @@ import com.androidplot.ui.HorizontalPositioning;
 import com.androidplot.ui.TableOrder;
 import com.androidplot.ui.VerticalPositioning;
 import com.androidplot.util.PixelUtils;
-
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -39,8 +39,14 @@ public class HomeFragment extends BaseFragment {
         mSettings = Settings.get(getContext());
         mTradeEntries = TradeEntries.get(getContext());
 
-        List<Trade> trades = mTradeEntries.getTradesBetweenDates("Weekly");
-        double totalAmount = 0.00;
+        List<Trade> trades = mTradeEntries.getTradesBetweenDates(mSettings.getTradeCounter(), 1);
+        List<Trade> allTrades = mTradeEntries.getTrades();
+        List<KeyValue> winningChartValues = new ArrayList<>();
+        List<KeyValue> losingChartValues = new ArrayList<>();
+        double totalAmount, allTradesTotalAmount, percentChange;
+        int winningCat1, winningCat2, winningCat3, winningCat4, winningCat5,
+                losingCat1, losingCat2, losingCat3, losingCat4, losingCat5;
+        DecimalFormat totalAmountFormatter = new DecimalFormat("#.00");
 
         mImportantMessage = (TextView) view.findViewById(R.id.homeMessageArea);
         mNumberOfTrades = (TextView) view.findViewById(R.id.homeTotalTrades);
@@ -53,6 +59,7 @@ public class HomeFragment extends BaseFragment {
         // Check for important messages, if we are null then dont worry about it
         // On initial load, after the user visits the settings screen then the important msg is null
         mSettings = Settings.get(getContext());
+        // Check for string as well, because when we read the file, it will interupt it as a string
         if (msg == null || msg.equals("null")) {
             mImportantMessage.setVisibility(View.GONE);
         }
@@ -61,67 +68,122 @@ public class HomeFragment extends BaseFragment {
         }
 
         mNumberOfTrades.setText(Integer.toString(trades.size()));
+        totalAmount = 0;
+        winningCat1 = winningCat2 = winningCat3 = winningCat4 = winningCat5 = 0;
+        losingCat1 = losingCat2 = losingCat3 = losingCat4 = losingCat5 = 0;
 
         for(Trade trade : trades) {
+            // Find our most popular outcome categories while we are summing up our totals based on user selected
+            // time period
+            if (trade.getExitPrice() >= trade.getEntryPrice()) {
+                winningCat1 += (trade.getOutcomeCat().equals(mSettings.getCat1())) ? 1 : 0;
+                winningCat2 += (trade.getOutcomeCat().equals(mSettings.getCat2())) ? 1 : 0;
+                winningCat3 += (trade.getOutcomeCat().equals(mSettings.getCat3())) ? 1 : 0;
+                winningCat4 += (trade.getOutcomeCat().equals(mSettings.getCat4())) ? 1 : 0;
+                winningCat5 += (trade.getOutcomeCat().equals(mSettings.getCat5())) ? 1 : 0;
+            }
+            else {
+                losingCat1 += (trade.getOutcomeCat().equals(mSettings.getCat1())) ? 1 : 0;
+                losingCat2 += (trade.getOutcomeCat().equals(mSettings.getCat2())) ? 1 : 0;
+                losingCat3 += (trade.getOutcomeCat().equals(mSettings.getCat3())) ? 1 : 0;
+                losingCat4 += (trade.getOutcomeCat().equals(mSettings.getCat4())) ? 1 : 0;
+                losingCat5 += (trade.getOutcomeCat().equals(mSettings.getCat5())) ? 1 : 0;
+            }
+
             totalAmount += (trade.getExitPrice() - trade.getEntryPrice()) * trade.getPositionSize();
         }
-        DecimalFormat totalAmountFormatter = new DecimalFormat("#.00");
         mMoneyChange.setText(totalAmountFormatter.format(totalAmount));
 
-        // sort through data if above 0 then its a win if below 0 its a loss
-        // then grab top 2 cats of each to display charts and number of occurances
+        allTradesTotalAmount = 0;
+        for( Trade trade : allTrades) {
+            allTradesTotalAmount += (trade.getExitPrice() - trade.getEntryPrice()) * trade.getPositionSize();
+        }
+        percentChange = (allTradesTotalAmount - totalAmount) / allTradesTotalAmount * 100;
+        percentChange = (Double.isNaN(percentChange)) ? 0.00 : percentChange;
+        mPercentChange.setText(totalAmountFormatter.format(percentChange));
 
-        CreatePieChart(mLosingPieChart,"BTFD",10,"Hesistaion", 15,
-                "",0,"", 0, "", 0);
-        CreatePieChart(mWinningPieChart,"Timing",17,"Fear",10,
-                "Some",5, "",0,"",0);
+        // set up our winning pie chart numbers
+        winningChartValues.add(new KeyValue(mSettings.getCat1(), winningCat1));
+        winningChartValues.add(new KeyValue(mSettings.getCat2(), winningCat2));
+        winningChartValues.add(new KeyValue(mSettings.getCat3(), winningCat3));
+        winningChartValues.add(new KeyValue(mSettings.getCat4(), winningCat4));
+        winningChartValues.add(new KeyValue(mSettings.getCat5(), winningCat5));
+        Collections.sort(winningChartValues, new DescSort());
+
+        CreatePieChart(mWinningPieChart,winningChartValues.get(0).getKey(),winningChartValues.get(0).getValue(),
+                        winningChartValues.get(1).getKey(), winningChartValues.get(1).getValue());
+
+        // Set up our losing pie chart numbers
+        losingChartValues.add(new KeyValue(mSettings.getCat1(), losingCat1));
+        losingChartValues.add(new KeyValue(mSettings.getCat2(), losingCat2));
+        losingChartValues.add(new KeyValue(mSettings.getCat3(), losingCat3));
+        losingChartValues.add(new KeyValue(mSettings.getCat4(), losingCat4));
+        losingChartValues.add(new KeyValue(mSettings.getCat5(), losingCat5));
+        Collections.sort(losingChartValues, new DescSort());
+
+        CreatePieChart(mLosingPieChart,losingChartValues.get(0).getKey(),losingChartValues.get(0).getValue(),
+                losingChartValues.get(1).getKey(), losingChartValues.get(1).getValue());
 
         return view;
     }
 
     /*
-    @ params - PieChart, String, int, String, int, String, int, String, int, String, int
-    @ descrip - Sets up a new pie chart with up to 5 segements. title and value are args.
+    @ params - PieChart, String, int, String, int
+    @ descrip - Sets up a new pie chart with up to 2 segements. title and value are args. Because we have 5 categories
+               We are picking the top two for each winning and losing
      */
-    public void CreatePieChart(PieChart pie, String seg1title, int segment1Val, String seg2title, int segment2Val,
-                               String seg3title, int segment3Val, String seg4title, int segment4Val,
-                               String seg5title, int segment5Val) {
+    public void CreatePieChart(PieChart pie, String seg1title, int segment1Val, String seg2title, int segment2Val) {
         pie.getBackgroundPaint().setColor(Color.argb(0,255,255,255));
         pie.getLegend().setVisible(true);
+        pie.getLegend().getTextPaint().setColor(Color.BLACK);
         pie.getLegend().setTableModel(new FixedTableModel(PixelUtils.dpToPix(300), PixelUtils.dpToPix(25), TableOrder.COLUMN_MAJOR));
-        pie.getLegend().position((float)-0.10, HorizontalPositioning.ABSOLUTE_FROM_RIGHT, (float)0.20, VerticalPositioning.RELATIVE_TO_TOP, Anchor.TOP_MIDDLE);
+        pie.getLegend().position(PixelUtils.dpToPix(50), HorizontalPositioning.ABSOLUTE_FROM_RIGHT, (float)0.20, VerticalPositioning.RELATIVE_TO_TOP, Anchor.TOP_MIDDLE);
+        pie.getPie().position(PixelUtils.dpToPix(-50), HorizontalPositioning.ABSOLUTE_FROM_LEFT, 0, VerticalPositioning.RELATIVE_TO_TOP);
 
         // Create new segments based on our params
         Segment s1 = new Segment(seg1title, segment1Val);
         Segment s2 = new Segment(seg2title, segment2Val);
-        Segment s3 = new Segment(seg3title, segment3Val);
-        Segment s4 = new Segment(seg4title, segment4Val);
-        Segment s5 = new Segment(seg5title, segment5Val);
 
         // Set up our colors
         SegmentFormatter sf1 = new SegmentFormatter(Color.BLACK);
         SegmentFormatter sf2 = new SegmentFormatter(Color.BLUE);
-        SegmentFormatter sf3 = new SegmentFormatter(Color.RED);
-        SegmentFormatter sf4 = new SegmentFormatter(Color.YELLOW);
-        SegmentFormatter sf5 = new SegmentFormatter(Color.CYAN);
 
-        // If our value is 0 dont bother showing it
-        if (segment1Val != 0) {
-            pie.addSegment(s1, sf1);
-        }
-        if (segment2Val != 0) {
-            pie.addSegment(s2, sf2);
-        }
-        if (segment3Val != 0) {
-            pie.addSegment(s3, sf3);
-        }
-        if (segment4Val != 0) {
-            pie.addSegment(s4, sf4);
-        }
-        if (segment5Val != 0) {
-            pie.addSegment(s5, sf5);
+        pie.addSegment(s1, sf1);
+        pie.addSegment(s2, sf2);
+    }
+
+    /*
+    The KeyValue class is a simple class that allows an key value object to be made. Useful for tracking
+    integer values with an name. Similar to a Python dictionary.
+     */
+    private class KeyValue {
+        private String key;
+        private int value;
+
+        public String getKey() {
+            return key;
         }
 
+        public int getValue() {
+            return value;
+        }
+
+        public  KeyValue (String _key, int _value) {
+            key = _key;
+            value = _value;
+        }
+
+    }
+
+    /*
+    Simple class for sorting Collection objects in a descending order. Similar to the JavaScript comparing function.
+     */
+    private class DescSort implements Comparator<KeyValue>
+    {
+        public int compare(KeyValue a, KeyValue b)
+        {
+            return a.value + b.value;
+        }
     }
 
 }

@@ -42,7 +42,7 @@
             android:paddingLeft="20dp"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:text="@string/summaryCat1Lbl"
+            android:text="@string/summaryChartLbl"
             android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,19 +50,19 @@
 
         <com.androidplot.xy.XYPlot
             android:id="@+id/performCat1"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            ap:lineLabelRotationBottom="-45"
+            ap:lineLabels="left|bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/performCat1Lbl"
-            ap:lineLabels="left|bottom"
-            ap:lineLabelRotationBottom="-45"/>
+            app:layout_constraintTop_toBottomOf="@+id/performCat1Lbl" />
 
         <!-- Recycler View of Past Trades-->
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/trade_item_recyclerView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="50dp"

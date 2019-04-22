@@ -153,7 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:inputType="textMultiLine"
             android:minLines="6"
@@ -163,14 +163,14 @@
             android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailViewCategory" />
+            app:layout_constraintTop_toBottomOf="@+id/detailEntryNotesLbl" />
 
         <EditText
             android:id="@+id/detailViewExitTradeDescrip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:enabled="false"
             android:hint="Exit Notes..."
@@ -178,9 +178,10 @@
             android:paddingTop="50dp"
             android:paddingBottom="6dp"
             android:textColor="@color/ap_black"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailViewEntryTradeDescrip" />
+            app:layout_constraintTop_toBottomOf="@+id/detailsExitNotesLbl" />
 
         <Button
             android:id="@+id/detailsDeleteBtn"
@@ -194,6 +195,43 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailViewExitTradeDescrip" />
+
+        <TextView
+            android:id="@+id/detailEntryNotesLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="Entry Notes:"
+            android:textColor="@color/ap_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewCategory" />
+
+        <TextView
+            android:id="@+id/detailsExitNotesLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="Exit Notes:"
+            android:textColor="@color/ap_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailViewEntryTradeDescrip" />
+
+        <TextView
+            android:id="@+id/detailsExitPriceLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="Exit: $"
+            android:textColor="@color/ap_black"
+            app:layout_constraintEnd_toStartOf="@+id/detailViewExitPrice"
+            app:layout_constraintTop_toTopOf="@+id/detailViewExitPrice" />
 
 
     </android.support.constraint.ConstraintLayout>

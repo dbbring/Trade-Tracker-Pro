@@ -12,20 +12,25 @@
         <activity android:name=".TradeTrackerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<provider>
+        <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}"
             android:grantUriPermissions="true"
             android:exported="false"
+            android:authorities="com.example.tradetrackerpro">
 
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_provider_paths"></meta-data>
-        </provider>-->
+                android:resource="@xml/file_provider_paths"/>
+        </provider>
+        <receiver android:name=".AlarmReceiverForNotification"  android:enabled="true" android:exported="false"></receiver>
+        <service
+            android:name=".NotifyService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+        </service>
     </application>
 
 </manifest>

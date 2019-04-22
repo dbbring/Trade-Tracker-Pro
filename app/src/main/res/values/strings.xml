@@ -26,11 +26,7 @@
     <string name="exitDetailsLbl">Exit Notes..</string>
     <string name="entrySaveBtn">Save Entry</string>
     <string name="summaryLbl">Performance Summary</string>
-    <string name="summaryCat1Lbl">Category 1</string>
-    <string name="summaryCat2Lbl">Category 2</string>
-    <string name="summaryCat3Lbl">Category 3</string>
-    <string name="summaryCat4Lbl">Category 4</string>
-    <string name="summaryCat5Lbl">Category 5</string>
+    <string name="summaryChartLbl">Last 4 Periods</string>
     <string name="summaryDetailsBtn">View Trade Details</string>
     <string name="detailsLbl">Trade Details</string>
     <string name="detailsTickerLbl">Ticker: BRS</string>
@@ -50,6 +46,7 @@
     <string name="newEntrySuccessful">New Entry Added Successfully!</string>
     <string name="detailsDeleteBtn">Delete This Entry</string>
     <string name="entryDeleted">Trade Has Been Successfully Deleted</string>
+    <string name="entryUpdated">Trade Has Been Updated</string>
     <string name="entryNotValid">Trade Entry Is Not Valid!</string>
     <string-array name="tradeCounterSelection">
         <item>"Daily"</item>

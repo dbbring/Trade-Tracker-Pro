@@ -18,7 +18,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
-
 public class TradeEntryFragment extends BaseFragment {
     private Button mDateButton;
     private Button mSubmitButton;
@@ -66,12 +65,12 @@ public class TradeEntryFragment extends BaseFragment {
         String[] acctSelections = {mSettings.getAcct1(), mSettings.getAcct2(),mSettings.getAcct3()};
         String[] catSelections = {mSettings.getCat1(), mSettings.getCat2(), mSettings.getCat3(), mSettings.getCat4(), mSettings.getCat5()};
 
-        ArrayAdapter<String> acctAdapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> acctAdapter = new ArrayAdapter<>(
                 getContext(), android.R.layout.simple_spinner_item, acctSelections);
         acctAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mAcctNum.setAdapter(acctAdapter);
 
-        ArrayAdapter<String> catAdapter = new ArrayAdapter<String>(
+        ArrayAdapter<String> catAdapter = new ArrayAdapter<>(
                 getContext(), android.R.layout.simple_spinner_item, catSelections);
         catAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mOutcomeCat.setAdapter(catAdapter);
@@ -82,10 +81,10 @@ public class TradeEntryFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Validation validator = new Validation();
-
+                // Validate our inputs, if incorrect set to blank string or 0
                 String ticker = (validator.isNullOrEmpty(mTicker.getText().toString())) ? "" : mTicker.getText().toString();
                 double entryPrice = (!validator.isNumeric(mEntryPrice.getText().toString())) ? Double.parseDouble(mEntryPrice.getText().toString()) : 0.00;
-                double exitPrice = (!validator.isNumeric(mExitPrice.getText().toString())) ? Double.parseDouble(mExitPrice.getText().toString()) : 0.00;
+                double exitPrice = (mExitPrice.getText().toString().equals("")) ? 0.00 : Double.parseDouble(mExitPrice.getText().toString());
                 int size = (validator.isNumeric(mSize.getText().toString())) ? Integer.parseInt(mSize.getText().toString()) : 0;
                 String date = (validator.isNullOrEmpty(mDateButton.getText().toString()) ||
                         mDateButton.getText().toString().equals("Enter Date")) ? "" : mDateButton.getText().toString();
@@ -106,12 +105,12 @@ public class TradeEntryFragment extends BaseFragment {
                     mTrade.setEntryTradeDescrip(entryNote);
                     mTrade.setExitTradeDescrip(mExitDescrip.getText().toString());
                     mTrade.setDate(mDateButton.getText().toString());
-                    // Hack for ID col
+                    // Hack for ID col, guess we can't win them all
                     mTrade.setTradeID(new Random().nextInt());
 
                     TradeEntries.get(getActivity()).addTrade(mTrade);
                     Toast.makeText(getActivity(), R.string.newEntrySuccessful, Toast.LENGTH_SHORT).show();
-
+                    // Reset our entry screen so the user can enter multiple entries
                     mTicker.setText("");
                     mEntryPrice.setText("");
                     mExitPrice.setText("");
@@ -128,10 +127,10 @@ public class TradeEntryFragment extends BaseFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check if the user has entered a date via extra's
         if (resultCode != Activity.RESULT_OK) {
             return;
         }
-
         if(requestCode == REQUEST_DATE) {
             Date date = (Date) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE);
             DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");

@@ -1,5 +1,8 @@
 package com.example.tradetrackerpro;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -7,25 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
-
-
-/*
-====================== TODO ====================
-Figure Net Change for Detailed Entry View.
-
-Add 3:05 cst reminder
-
-export to csv
-set csv file name to something decent
-use implicent intent to send the csv to w.e. the user wants to share with
-
-% change and $ change on home screen will represent the trade journal activity over the last week, so all gains minus all losses
-Populate charts with real data
-Update exit descrip from detail view onStop()
-have to update exit price for entry only jounral logs
-details view, have labels so we are not just setting Exit: $ via the set text option otherwise it will get overwrote
- */
+import java.util.Calendar;
 
 public  class TradeTrackerActivity extends AppCompatActivity {
     private ImageButton homeBtn;
@@ -38,6 +23,23 @@ public  class TradeTrackerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trade_tracker_activity);
 
+        // Set up our daily alarm for 7:00PM to remind users to enter logs
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent alarmIntent = new Intent(this, AlarmReceiverForNotification.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+        // Set Time
+        Calendar alarmStartTime = Calendar.getInstance();
+        Calendar now = Calendar.getInstance();
+        alarmStartTime.set(Calendar.HOUR_OF_DAY, 19);
+        alarmStartTime.set(Calendar.MINUTE, 00);
+        alarmStartTime.set(Calendar.SECOND, 0);
+        // Increment each day for a repeating alarm
+        if (now.after(alarmStartTime)) {
+            alarmStartTime.add(Calendar.DATE, 1);
+        }
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarmStartTime.getTimeInMillis() , AlarmManager.INTERVAL_DAY, pendingIntent);
+
+        // Onload setup our constant layout that will never change (Buttons on bottom)
         FragmentManager fm = getSupportFragmentManager();
         Fragment homeFragment = fm.findFragmentById((R.id.home_layout));
 
@@ -97,6 +99,5 @@ public  class TradeTrackerActivity extends AppCompatActivity {
                 transact.commit();
             }
         });
-
     }
 }

@@ -28,34 +28,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Second Row of Settings -->
-
-        <TextView
-            android:id="@+id/settingsExportEmailAddressLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingLeft="20dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:text="@string/settingsExportEmailLbl"
-            android:textColor="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
-
-        <EditText
-            android:id="@+id/settingsExportEmailAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="1dp"
-            android:hint="johnDoe@john.com"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:textAlignment="textEnd"
-            android:textColor="@color/ap_black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
-
         <!-- Third Row of Settings -->
 
         <TextView
@@ -69,7 +41,7 @@
             android:text="@string/settingsTrend1Lbl"
             android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsExportEmailAddressLbl" />
+            app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
 
         <EditText
             android:id="@+id/settingsTrendCat1"
@@ -83,7 +55,7 @@
             android:textAlignment="textEnd"
             android:textColor="@color/ap_black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/settingsExportEmailAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
 
         <!-- Fourth Row of Settings -->
 
